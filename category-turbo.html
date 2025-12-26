@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marine Turbochargers | Universal Exports BVN</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        corporate: { 900: '#0B1120', 800: '#1E293B', blue: '#003366' },
+                        action: { 500: '#F97316', 600: '#EA580C' },
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <div class="bg-corporate-900 text-slate-300 text-[11px] py-2 tracking-wide uppercase border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <div class="flex gap-6">
+                <span class="flex items-center gap-1"><span class="text-green-500">●</span> Alang Yard Status: Operational</span>
+                <span class="hidden md:inline">ISO 9001:2015 & RINA Certified</span>
+            </div>
+            <div class="flex gap-6 font-bold text-white">
+                <a href="#" class="hover:text-action-500 transition">Download Brochure</a>
+                <a href="tel:+9198252XXXXX" class="hover:text-action-500 transition">+91 98252 XXXXX</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="sticky top-0 z-50 bg-white shadow-md border-b border-slate-200" id="navbar">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 bg-corporate-blue text-white flex items-center justify-center font-bold text-xl rounded-sm shadow-lg">UE</div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-corporate-900 text-xl leading-none tracking-tight">UNIVERSAL<br>EXPORTS</span>
+                        <span class="text-[9px] uppercase tracking-[0.2em] text-slate-500 mt-1">Bhavnagar • Alang</span>
+                    </div>
+                </a>
+                <div class="hidden xl:flex space-x-8 items-center text-sm font-bold text-slate-700 uppercase tracking-wide">
+                    <a href="index.html" class="hover:text-corporate-blue transition">Home</a>
+                    <a href="index.html#about" class="hover:text-corporate-blue transition">Company</a>
+                    
+                    <div x-data="{ open: false }" class="relative">
+                        <button @click="open = !open" @click.outside="open = false" class="flex items-center gap-1 hover:text-corporate-blue transition">
+                            Inventory
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div x-show="open" x-transition class="absolute top-full left-0 mt-2 w-56 bg-white shadow-xl rounded-lg border border-slate-100 py-2 z-50 normal-case font-normal text-slate-600">
+                            <a href="category-engines.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-corporate-blue">Main Engines</a>
+                            <a href="category-turbo.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-corporate-blue">Turbochargers</a>
+                            <a href="category-auxiliary.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-corporate-blue">Auxiliary Engines</a>
+                            <a href="category-compressors.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-corporate-blue">Air Compressors</a>
+                            <a href="category-separators.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-corporate-blue">Oil Purifiers</a>
+                            <a href="category-navigation.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-corporate-blue">Navigation & Auto</a>
+                            <a href="category-hydraulics.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-corporate-blue">Hydraulic Pumps</a>
+                            <a href="category-deck.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-corporate-blue">Deck Machinery</a>
+                        </div>
+                    </div>
+
+                    <a href="index.html#workshop" class="hover:text-corporate-blue transition">Workshop</a>
+                    <a href="index.html#clients" class="hover:text-corporate-blue transition">Clients</a>
+                    <a href="#contact" class="bg-action-500 text-white px-6 py-3 rounded shadow hover:bg-action-600 transition hover:-translate-y-0.5">
+                        Get Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-white border-b border-slate-200 py-3">
+        <div class="max-w-7xl mx-auto px-4 text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
+            <a href="index.html" class="hover:text-corporate-blue">Home</a> <span>/</span>
+            <a href="index.html#inventory" class="hover:text-corporate-blue">Inventory</a> <span>/</span>
+            <span class="text-corporate-900">Turbochargers</span>
+        </div>
+    </div>
+
+    <header class="relative bg-corporate-900 text-white overflow-hidden py-20">
+        <div class="absolute inset-0">
+            <img src="https://plus.unsplash.com/premium_photo-1664302152996-33985bf45b14?q=80&w=2072&auto=format&fit=crop" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-r from-corporate-900 via-corporate-900/90 to-transparent"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-action-500 font-bold uppercase tracking-widest text-xs mb-2 block">Premium Marine Spares</span>
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                    Reconditioned <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-action-500 to-yellow-500">Turbochargers</span>
+                </h1>
+                <p class="text-slate-300 text-lg mb-8 max-w-lg leading-relaxed">
+                    Complete units, rotors, and nozzle rings. We stock ABB (VTR/TPL), MAN (NA/TCA), and Mitsubishi (MET) series. All units dynamically balanced before dispatch.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#inventory" class="px-8 py-3 bg-action-500 text-white font-bold rounded hover:bg-action-600 transition uppercase tracking-wide text-sm">
+                        View All Turbochargers
+                    </a>
+                    <button class="px-8 py-3 bg-white/10 border border-white/20 text-white font-bold rounded hover:bg-white/20 transition uppercase tracking-wide text-sm">
+                        Download Stock List (PDF)
+                    </button>
+                </div>
+            </div>
+            <div class="hidden lg:block">
+                <div class="bg-white/5 backdrop-blur border border-white/10 p-6 rounded-xl max-w-sm ml-auto">
+                    <h4 class="font-bold text-lg mb-4 border-b border-white/10 pb-2">Technical Standards</h4>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-center justify-between">
+                            <span>Rotor Balancing</span>
+                            <span class="text-green-400 font-mono">ISO 1940-1</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span>Blade Inspection</span>
+                            <span class="text-green-400 font-mono">UV/Dye Pen</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span>Casing Test</span>
+                            <span class="text-green-400 font-mono">Hydro @ 1.5x</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span>Bearing Kits</span>
+                            <span class="text-green-400 font-mono">New OEM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-12 bg-white border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="text-center text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Supported Manufacturers</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale">
+                <span class="text-xl font-bold font-serif">ABB Turbo Systems</span>
+                <span class="text-xl font-bold font-serif">MAN Energy</span>
+                <span class="text-xl font-bold font-serif">MITSUBISHI MET</span>
+                <span class="text-xl font-bold font-serif">NAPIER</span>
+                <span class="text-xl font-bold font-serif">KBB</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white border-b border-slate-100">
+        <div class="max-w-4xl mx-auto px-4">
+            <span class="text-action-500 font-bold uppercase tracking-widest text-xs block mb-4">Technical Insight</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-corporate-900 mb-8">The Science of Reconditioning Marine Turbochargers</h2>
+            
+            <div class="prose prose-slate prose-lg text-slate-600 text-justify-inter">
+                <p class="mb-6">
+                    At Universal Exports, we understand that the turbocharger is the lung of your main engine. A failure here doesn't just mean power loss; it means off-hire time, missed charters, and potential damage to the combustion chamber. That is why we treat every used turbocharger not as "scrap," but as a precision instrument requiring restoration to OEM tolerances.
+                </p>
+                <p class="mb-6">
+                    Our sourcing strategy is unique. We do not buy from third-party aggregators. We board vessels at the Alang breaking yard <strong>before</strong> beaching to inspect the turbocharger in operation. We check the logbooks for running hours, surge history, and maintenance intervals. Only units with a clean history are selected for our workshop.
+                </p>
+                
+                <h3 class="text-2xl font-bold text-corporate-900 mt-10 mb-4">Our 6-Step Restoration Process</h3>
+                <ul class="list-none space-y-4 pl-0">
+                    <li class="flex gap-4">
+                        <span class="font-bold text-corporate-blue min-w-[20px]">1.</span>
+                        <span><strong>Chemical Stripping & Cleaning:</strong> All components are dismantled and soaked in industrial chemical baths to remove carbon deposits, sludge, and oil residues without damaging the base metal.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="font-bold text-corporate-blue min-w-[20px]">2.</span>
+                        <span><strong>NDT Inspection:</strong> Gas inlet and outlet casings undergo Ultrasonic Thickness Measurement (UTM) to ensure no erosion has compromised structural integrity. Turbine blades are checked with Dye Penetrant for micro-cracks.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="font-bold text-corporate-blue min-w-[20px]">3.</span>
+                        <span><strong>Rotor Balancing:</strong> This is the most critical step. We use a Schenck dynamic balancing machine to balance the rotor assembly to ISO 1940-1 G2.5 standards. This ensures vibration-free operation at speeds exceeding 15,000 RPM.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="font-bold text-corporate-blue min-w-[20px]">4.</span>
+                        <span><strong>Bearing & Seal Replacement:</strong> Regardless of condition, all bearings and oil seals are replaced with brand new OEM-specification parts. We never reuse consumables.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="font-bold text-corporate-blue min-w-[20px]">5.</span>
+                        <span><strong>Hydrostatic Testing:</strong> Water-cooled casings are pressure tested at 1.5x operating pressure to guarantee no leaks.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="font-bold text-corporate-blue min-w-[20px]">6.</span>
+                        <span><strong>Preservation & Crating:</strong> Finished units are coated with anti-corrosive VCI film, wrapped, and secured in ISPM-15 compliant wooden crates for global export.</span>
+                    </li>
+                </ul>
+
+                <div class="bg-blue-50 border-l-4 border-corporate-blue p-6 mt-10">
+                    <p class="text-sm font-bold text-corporate-900 italic">
+                        "We don't just sell used parts. We sell the remaining lifecycle of a high-value asset, verified and guaranteed."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200">
+                <div class="w-12 h-12 bg-blue-50 text-corporate-blue flex items-center justify-center rounded mb-4 text-2xl">⚖️</div>
+                <h3 class="font-bold text-corporate-900 text-lg mb-2">Dynamic Balancing</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">We don't just clean them. Every rotor assembly is balanced on our Schenck machine to ensure zero vibration at 15,000+ RPM.</p>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200">
+                <div class="w-12 h-12 bg-blue-50 text-corporate-blue flex items-center justify-center rounded mb-4 text-2xl">🔍</div>
+                <h3 class="font-bold text-corporate-900 text-lg mb-2">Ultrasonic Thickness</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">Gas inlet and outlet casings are tested for wall thickness to ensure they meet Class requirements for pressure safety.</p>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200">
+                <div class="w-12 h-12 bg-blue-50 text-corporate-blue flex items-center justify-center rounded mb-4 text-2xl">📦</div>
+                <h3 class="font-bold text-corporate-900 text-lg mb-2">Retrofit Ready</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">We supply complete units with matching specifications (VTR 0/1/4 series) ready to bolt on to your main engine.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="inventory" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <h2 class="text-3xl font-bold text-corporate-900">Featured Turbochargers</h2>
+                    <p class="text-slate-500 mt-2">Selected units ready for immediate dispatch.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="group border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg transition">
+                    <div class="h-48 bg-slate-100 relative">
+                         <div class="absolute inset-0 bg-slate-200 flex items-center justify-center text-slate-400">Image: ABB VTR 564</div>
+                         <div class="absolute top-3 right-3 bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">In Stock</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-corporate-900 text-lg">ABB VTR 564-11</h3>
+                        <p class="text-xs text-slate-500 mb-4">Reconditioned 2024. Rotor balanced.</p>
+                        <div class="flex justify-between items-center border-t border-slate-100 pt-4">
+                            <span class="font-mono text-sm text-slate-600">S/N: 2849XX</span>
+                            <span class="text-corporate-blue font-bold text-sm">View Specs →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg transition">
+                    <div class="h-48 bg-slate-100 relative">
+                         <div class="absolute inset-0 bg-slate-200 flex items-center justify-center text-slate-400">Image: MAN NA 48</div>
+                         <div class="absolute top-3 right-3 bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">In Stock</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-corporate-900 text-lg">MAN NA 48/S</h3>
+                        <p class="text-xs text-slate-500 mb-4">Complete unit. Turbine blades 100%.</p>
+                        <div class="flex justify-between items-center border-t border-slate-100 pt-4">
+                            <span class="font-mono text-sm text-slate-600">S/N: 8821XX</span>
+                            <span class="text-corporate-blue font-bold text-sm">View Specs →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg transition">
+                    <div class="h-48 bg-slate-100 relative">
+                         <div class="absolute inset-0 bg-slate-200 flex items-center justify-center text-slate-400">Image: MET 66 SD</div>
+                         <div class="absolute top-3 right-3 bg-orange-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">Few Left</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-corporate-900 text-lg">Mitsubishi MET 66SD</h3>
+                        <p class="text-xs text-slate-500 mb-4">Ex-VLCC Vessel. Good condition.</p>
+                        <div class="flex justify-between items-center border-t border-slate-100 pt-4">
+                            <span class="font-mono text-sm text-slate-600">S/N: 1102XX</span>
+                            <span class="text-corporate-blue font-bold text-sm">View Specs →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-corporate-900 rounded-2xl p-8 md:p-12 text-center relative overflow-hidden group cursor-pointer">
+                <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+                <div class="relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Browse 450+ Turbochargers</h2>
+                    <p class="text-slate-400 mb-8 max-w-2xl mx-auto">Use our advanced filter to find exact models by Brand (ABB, MAN, Mitsubishi) or Type (VTR, TPL, NA).</p>
+                    <a href="product-listing.html" class="inline-flex items-center gap-3 bg-action-500 hover:bg-action-600 text-white px-8 py-4 rounded font-bold uppercase tracking-widest transition transform group-hover:-translate-y-1">
+                        View Full Inventory Grid
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white" x-data="{ active: null }">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-corporate-900 mb-4">Turbocharger FAQs</h2>
+            <p class="text-center text-slate-500 mb-12">Common questions about our reconditioned units.</p>
+
+            <div class="space-y-4">
+                <div class="border border-slate-200 rounded-lg overflow-hidden">
+                    <button @click="active = (active === 1 ? null : 1)" class="w-full flex justify-between items-center p-4 bg-slate-50 hover:bg-slate-100 text-left font-bold text-corporate-900">
+                        Do you supply complete units or just spares?
+                        <span class="text-xl" x-text="active === 1 ? '-' : '+'"></span>
+                    </button>
+                    <div x-show="active === 1" class="p-4 text-slate-600 leading-relaxed border-t border-slate-200">
+                        We supply both. We have a large stock of complete turbochargers (VTR, TPL, MET, NA series) ready for exchange. We also supply individual components like Rotor Assemblies, Casings, Nozzle Rings, and Diffusers.
+                    </div>
+                </div>
+                 <div class="border border-slate-200 rounded-lg overflow-hidden">
+                    <button @click="active = (active === 2 ? null : 2)" class="w-full flex justify-between items-center p-4 bg-slate-50 hover:bg-slate-100 text-left font-bold text-corporate-900">
+                        Can you retrofit an older VTR 0/1 series?
+                        <span class="text-xl" x-text="active === 2 ? '-' : '+'"></span>
+                    </button>
+                    <div x-show="active === 2" class="p-4 text-slate-600 leading-relaxed border-t border-slate-200">
+                        Yes. We specialize in older models that are no longer supported by the OEM. We have a vast library of reconditioned VTR 160/161, 200/201, up to 630/631 units.
+                    </div>
+                </div>
+                 <div class="border border-slate-200 rounded-lg overflow-hidden">
+                    <button @click="active = (active === 3 ? null : 3)" class="w-full flex justify-between items-center p-4 bg-slate-50 hover:bg-slate-100 text-left font-bold text-corporate-900">
+                        Do you provide a balancing report?
+                        <span class="text-xl" x-text="active === 3 ? '-' : '+'"></span>
+                    </button>
+                    <div x-show="active === 3" class="p-4 text-slate-600 leading-relaxed border-t border-slate-200">
+                        Absolutely. Every rotor assembly we sell comes with a signed dynamic balancing report from our Schenck machine, verifying that residual unbalance is within ISO tolerances.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 text-sm">
+            <div class="col-span-1 md:col-span-2">
+                <div class="text-white font-bold text-2xl mb-4">UNIVERSAL EXPORTS</div>
+                <p class="leading-relaxed mb-6 max-w-sm">We are the bridge between the world's largest ship recycling yard and the global maritime fleet. Specializing in reconditioned machinery that meets OEM specifications at a fraction of the cost.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-8 h-8 bg-slate-800 flex items-center justify-center rounded hover:bg-action-500 hover:text-white transition">in</a>
+                    <a href="#" class="w-8 h-8 bg-slate-800 flex items-center justify-center rounded hover:bg-action-500 hover:text-white transition">fb</a>
+                    <a href="#" class="w-8 h-8 bg-slate-800 flex items-center justify-center rounded hover:bg-action-500 hover:text-white transition">yt</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-wider mb-6">Inventory</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white transition">Main Engines</a></li>
+                    <li><a href="#" class="hover:text-white transition">Turbochargers</a></li>
+                    <li><a href="#" class="hover:text-white transition">Oil Separators</a></li>
+                    <li><a href="#" class="hover:text-white transition">Air Compressors</a></li>
+                    <li><a href="#" class="hover:text-white transition">Hydraulics</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-wider mb-6">Company</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                    <li><a href="#" class="hover:text-white transition">Quality Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition">Contact</a></li>
+                    <li><a href="#" class="hover:text-white transition">Blog / News</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-slate-900 text-center text-xs text-slate-600">
+            &copy; 2025 Universal Exports BVN. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        gsap.from(".gsap-hero-text", { y: 50, opacity: 0, duration: 1, ease: "power3.out", delay: 0.2 });
+        gsap.from(".gsap-hero-image", { x: 50, opacity: 0, duration: 1, ease: "power3.out", delay: 0.4 });
+    </script>
+
+</body>
+</html>

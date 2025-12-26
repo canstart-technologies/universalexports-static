@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABB VTR 564-11 Turbocharger | Universal Exports BVN</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        corporate: {
+                            900: '#0B1120',
+                            800: '#1E293B',
+                            blue: '#003366',
+                        },
+                        action: {
+                            500: '#F97316',
+                            600: '#EA580C', 
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .text-justify-inter { text-align: justify; text-justify: inter-word; }
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- Top Bar -->
+    <div class="bg-corporate-900 text-slate-300 text-[11px] py-2 tracking-wide uppercase border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <div class="flex gap-6">
+                <span class="flex items-center gap-1"><span class="text-green-500">●</span> Alang Yard Status: Operational</span>
+                <span class="hidden md:inline">ISO 9001:2015 & RINA Certified</span>
+            </div>
+            <div class="flex gap-6 font-bold text-white">
+                <a href="#" class="hover:text-action-500 transition">Download Brochure</a>
+                <a href="tel:+9198252XXXXX" class="hover:text-action-500 transition">+91 98252 XXXXX</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md border-b border-slate-200" id="navbar">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 bg-corporate-blue text-white flex items-center justify-center font-bold text-xl rounded-sm shadow-lg">UE</div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-corporate-900 text-xl leading-none tracking-tight">UNIVERSAL<br>EXPORTS</span>
+                        <span class="text-[9px] uppercase tracking-[0.2em] text-slate-500 mt-1">Bhavnagar • Alang</span>
+                    </div>
+                </a>
+                <div class="hidden xl:flex space-x-8 items-center text-sm font-bold text-slate-700 uppercase tracking-wide">
+                    <a href="index.html" class="hover:text-corporate-blue transition">Home</a>
+                    <a href="index.html#about" class="hover:text-corporate-blue transition">Company</a>
+                    <a href="product-listing.html" class="text-corporate-blue transition">Inventory</a>
+                    <a href="index.html#workshop" class="hover:text-corporate-blue transition">Workshop</a>
+                    <a href="index.html#clients" class="hover:text-corporate-blue transition">Clients</a>
+                    <a href="#contact" class="bg-action-500 text-white px-6 py-3 rounded shadow hover:bg-action-600 transition hover:-translate-y-0.5">
+                        Get Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <div class="bg-white border-b border-slate-200 py-4">
+        <div class="max-w-7xl mx-auto px-4 text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
+            <a href="index.html" class="hover:text-corporate-blue">Home</a> <span>/</span>
+            <a href="product-listing.html" class="hover:text-corporate-blue">Inventory</a> <span>/</span>
+            <a href="category-turbo.html" class="hover:text-corporate-blue">Turbochargers</a> <span>/</span>
+            <span class="text-corporate-900">ABB VTR 564-11</span>
+        </div>
+    </div>
+
+    <!-- Product Hero Section -->
+    <div class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        
+        <!-- Image Gallery -->
+        <div class="space-y-4" x-data="{ activeImage: 'https://images.unsplash.com/photo-1565619624098-e659884d3c36?q=80&w=2070&auto=format&fit=crop' }">
+            <div class="aspect-[4/3] bg-slate-100 rounded-lg overflow-hidden border border-slate-200 shadow-sm relative group">
+                <img :src="activeImage" class="w-full h-full object-cover">
+                <div class="absolute top-4 left-4 bg-corporate-blue text-white text-xs font-bold px-3 py-1 rounded uppercase tracking-wider">Verified Unit</div>
+            </div>
+            <div class="grid grid-cols-4 gap-4">
+                <button @click="activeImage = 'https://images.unsplash.com/photo-1565619624098-e659884d3c36?q=80&w=2070&auto=format&fit=crop'" class="aspect-square rounded border-2 border-transparent hover:border-corporate-blue overflow-hidden transition">
+                    <img src="https://images.unsplash.com/photo-1565619624098-e659884d3c36?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover">
+                </button>
+                <button @click="activeImage = 'https://plus.unsplash.com/premium_photo-1664302152996-33985bf45b14?q=80&w=2072&auto=format&fit=crop'" class="aspect-square rounded border-2 border-transparent hover:border-corporate-blue overflow-hidden transition">
+                    <img src="https://plus.unsplash.com/premium_photo-1664302152996-33985bf45b14?q=80&w=2072&auto=format&fit=crop" class="w-full h-full object-cover">
+                </button>
+                <!-- Placeholders for more angles -->
+                <div class="aspect-square bg-slate-100 rounded flex items-center justify-center text-slate-300 text-xs font-bold uppercase">Rotor View</div>
+                <div class="aspect-square bg-slate-100 rounded flex items-center justify-center text-slate-300 text-xs font-bold uppercase">Plate View</div>
+            </div>
+        </div>
+
+        <!-- Product Details -->
+        <div>
+            <div class="flex gap-3 mb-4">
+                <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded uppercase tracking-wide">In Stock</span>
+                <span class="bg-blue-100 text-corporate-blue text-xs font-bold px-2 py-1 rounded uppercase tracking-wide">Reconditioned</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-4xl font-bold text-corporate-900 mb-4">ABB VTR 564-11</h1>
+            <p class="text-slate-600 text-lg mb-8 leading-relaxed">
+                Complete turbocharger unit sourced from MV "Nordic Star". Fully reconditioned in our Bhavnagar workshop. Rotor balanced to ISO 1940-1 G2.5. Ready for immediate dispatch.
+            </p>
+
+            <div class="grid grid-cols-2 gap-y-4 gap-x-8 mb-8 border-y border-slate-200 py-6">
+                <div>
+                    <span class="text-xs text-slate-500 uppercase tracking-wider block mb-1">Serial Number</span>
+                    <span class="font-mono font-bold text-corporate-900">2849XX</span>
+                </div>
+                <div>
+                    <span class="text-xs text-slate-500 uppercase tracking-wider block mb-1">Manufacturer</span>
+                    <span class="font-bold text-corporate-900">ABB Turbo Systems</span>
+                </div>
+                <div>
+                    <span class="text-xs text-slate-500 uppercase tracking-wider block mb-1">Year of Mfg</span>
+                    <span class="font-mono font-bold text-corporate-900">2012</span>
+                </div>
+                <div>
+                    <span class="text-xs text-slate-500 uppercase tracking-wider block mb-1">Location</span>
+                    <span class="font-bold text-corporate-900">Bhavnagar Warehouse A</span>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 mb-8">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="font-bold text-corporate-900">Export Price</span>
+                    <span class="text-sm text-slate-500">FOB Mundra / CIF Available</span>
+                </div>
+                <button class="w-full bg-action-500 hover:bg-action-600 text-white font-bold py-4 rounded shadow-lg transition uppercase tracking-widest text-sm mb-3">
+                    Request Quote
+                </button>
+                <p class="text-center text-xs text-slate-500">Response time: &lt; 2 Hours</p>
+            </div>
+
+            <ul class="space-y-2 text-sm text-slate-600">
+                <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 6-Month Warranty Included</li>
+                <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Class Inspection Report Available (NK/Lloyds)</li>
+                <li class="flex items-center gap-2"><span class="text-green-500">✓</span> ISPM-15 Wooden Crating</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Detailed Tabs Section -->
+    <div class="bg-white border-t border-slate-200" x-data="{ tab: 'specs' }">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex space-x-8 border-b border-slate-200 overflow-x-auto">
+                <button @click="tab = 'specs'" :class="{ 'border-action-500 text-corporate-900': tab === 'specs', 'border-transparent text-slate-500 hover:text-corporate-blue': tab !== 'specs' }" class="py-4 border-b-2 font-bold uppercase text-sm tracking-wide whitespace-nowrap transition">Technical Specs</button>
+                <button @click="tab = 'desc'" :class="{ 'border-action-500 text-corporate-900': tab === 'desc', 'border-transparent text-slate-500 hover:text-corporate-blue': tab !== 'desc' }" class="py-4 border-b-2 font-bold uppercase text-sm tracking-wide whitespace-nowrap transition">Detailed Description</button>
+                <button @click="tab = 'docs'" :class="{ 'border-action-500 text-corporate-900': tab === 'docs', 'border-transparent text-slate-500 hover:text-corporate-blue': tab !== 'docs' }" class="py-4 border-b-2 font-bold uppercase text-sm tracking-wide whitespace-nowrap transition">Downloads & Reports</button>
+            </div>
+
+            <div class="py-12 min-h-[300px]">
+                
+                <!-- Specs Tab -->
+                <div x-show="tab === 'specs'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="font-bold text-corporate-900 mb-6">Specification Data</h3>
+                        <table class="w-full text-sm text-left">
+                            <tbody class="divide-y divide-slate-100">
+                                <tr><td class="py-3 text-slate-500">Type</td><td class="py-3 font-mono font-bold text-slate-800">VTR 564-11</td></tr>
+                                <tr><td class="py-3 text-slate-500">Max Speed (RPM)</td><td class="py-3 font-mono font-bold text-slate-800">15,500</td></tr>
+                                <tr><td class="py-3 text-slate-500">Max Temp (°C)</td><td class="py-3 font-mono font-bold text-slate-800">620</td></tr>
+                                <tr><td class="py-3 text-slate-500">Weight (kg)</td><td class="py-3 font-mono font-bold text-slate-800">3,450</td></tr>
+                                <tr><td class="py-3 text-slate-500">Specification</td><td class="py-3 font-mono font-bold text-slate-800">V 564 W 11 II 5 P</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-corporate-900 mb-6">Condition Report</h3>
+                        <table class="w-full text-sm text-left">
+                            <tbody class="divide-y divide-slate-100">
+                                <tr><td class="py-3 text-slate-500">Turbine Blades</td><td class="py-3 font-bold text-green-600">No Damage / Polished</td></tr>
+                                <tr><td class="py-3 text-slate-500">Compressor Wheel</td><td class="py-3 font-bold text-green-600">Original Dimensions</td></tr>
+                                <tr><td class="py-3 text-slate-500">Bearings</td><td class="py-3 font-bold text-corporate-blue">New OEM Installed</td></tr>
+                                <tr><td class="py-3 text-slate-500">Oil Pumps</td><td class="py-3 font-bold text-corporate-blue">Overhauled & Tested</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Description Tab -->
+                <div x-show="tab === 'desc'" x-cloak class="prose prose-slate max-w-none text-justify-inter">
+                    <p>This ABB VTR 564-11 turbocharger was recovered from a 2012-built Capesize Bulk Carrier during recycling at Alang Yard Plot #XX. The vessel arrived under its own power, and the turbocharger was inspected in operation prior to beaching. The logbook indicated regular maintenance intervals by ABB service engineers.</p>
+                    <p>Upon arrival at our workshop, the unit was completely dismantled. The rotor shaft was checked for run-out (within 0.02mm). The turbine blades were cleaned using walnut shell blasting and inspected for foreign object damage (FOD). No cracks were found during Dye Penetrant testing.</p>
+                    <p>The unit has been reassembled with a complete new bearing kit (Part No. 54100) and new oil pumps. It is currently stored in a climate-controlled environment, filled with preservation oil.</p>
+                </div>
+
+                <!-- Downloads Tab -->
+                <div x-show="tab === 'docs'" x-cloak class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <a href="#" class="group block border border-slate-200 rounded-lg p-6 hover:border-corporate-blue hover:shadow-md transition">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-red-50 text-red-500 rounded flex items-center justify-center font-bold text-xl">PDF</div>
+                            <div>
+                                <h4 class="font-bold text-corporate-900 group-hover:text-corporate-blue">Balancing Report</h4>
+                                <p class="text-xs text-slate-500">Schenck Machine Output</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="group block border border-slate-200 rounded-lg p-6 hover:border-corporate-blue hover:shadow-md transition">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-red-50 text-red-500 rounded flex items-center justify-center font-bold text-xl">PDF</div>
+                            <div>
+                                <h4 class="font-bold text-corporate-900 group-hover:text-corporate-blue">Dimension Sheet</h4>
+                                <p class="text-xs text-slate-500">Casing Thickness (UTM)</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="group block border border-slate-200 rounded-lg p-6 hover:border-corporate-blue hover:shadow-md transition">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-blue-50 text-corporate-blue rounded flex items-center justify-center font-bold text-xl">JPG</div>
+                            <div>
+                                <h4 class="font-bold text-corporate-900 group-hover:text-corporate-blue">Nameplate Photo</h4>
+                                <p class="text-xs text-slate-500">High Resolution</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Products -->
+    <section class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-2xl font-bold text-corporate-900 mb-8">Similar Units Available</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Related Item 1 -->
+                <a href="#" class="bg-white p-4 rounded border border-slate-200 hover:shadow-lg transition group">
+                    <div class="aspect-video bg-slate-100 mb-4 overflow-hidden rounded">
+                        <img src="https://images.unsplash.com/photo-1565619624098-e659884d3c36?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition">
+                    </div>
+                    <h4 class="font-bold text-corporate-900 text-sm group-hover:text-corporate-blue">ABB VTR 564-32</h4>
+                    <p class="text-xs text-slate-500 mt-1">S/N: 2910XX</p>
+                </a>
+                <!-- Related Item 2 -->
+                <a href="#" class="bg-white p-4 rounded border border-slate-200 hover:shadow-lg transition group">
+                    <div class="aspect-video bg-slate-100 mb-4 overflow-hidden rounded">
+                        <img src="https://images.unsplash.com/photo-1565619624098-e659884d3c36?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition">
+                    </div>
+                    <h4 class="font-bold text-corporate-900 text-sm group-hover:text-corporate-blue">ABB VTR 454-11</h4>
+                    <p class="text-xs text-slate-500 mt-1">S/N: 1102XX</p>
+                </a>
+                <!-- Related Item 3 -->
+                <a href="#" class="bg-white p-4 rounded border border-slate-200 hover:shadow-lg transition group">
+                    <div class="aspect-video bg-slate-100 mb-4 overflow-hidden rounded">
+                        <img src="https://images.unsplash.com/photo-1565619624098-e659884d3c36?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition">
+                    </div>
+                    <h4 class="font-bold text-corporate-900 text-sm group-hover:text-corporate-blue">MAN NA 57/T</h4>
+                    <p class="text-xs text-slate-500 mt-1">S/N: 8821XX</p>
+                </a>
+                <!-- Related Item 4 -->
+                <a href="#" class="bg-white p-4 rounded border border-slate-200 hover:shadow-lg transition group">
+                    <div class="aspect-video bg-slate-100 mb-4 overflow-hidden rounded">
+                        <img src="https://images.unsplash.com/photo-1565619624098-e659884d3c36?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition">
+                    </div>
+                    <h4 class="font-bold text-corporate-900 text-sm group-hover:text-corporate-blue">Rotor Assembly VTR 564</h4>
+                    <p class="text-xs text-slate-500 mt-1">Spare Part Only</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 text-sm">
+            <div class="col-span-1 md:col-span-2">
+                <div class="text-white font-bold text-2xl mb-4">UNIVERSAL EXPORTS</div>
+                <p class="leading-relaxed mb-6 max-w-sm">We are the bridge between the world's largest ship recycling yard and the global maritime fleet. Specializing in reconditioned machinery that meets OEM specifications at a fraction of the cost.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-8 h-8 bg-slate-800 flex items-center justify-center rounded hover:bg-action-500 hover:text-white transition">in</a>
+                    <a href="#" class="w-8 h-8 bg-slate-800 flex items-center justify-center rounded hover:bg-action-500 hover:text-white transition">fb</a>
+                    <a href="#" class="w-8 h-8 bg-slate-800 flex items-center justify-center rounded hover:bg-action-500 hover:text-white transition">yt</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-wider mb-6">Inventory</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white transition">Main Engines</a></li>
+                    <li><a href="#" class="hover:text-white transition">Turbochargers</a></li>
+                    <li><a href="#" class="hover:text-white transition">Oil Separators</a></li>
+                    <li><a href="#" class="hover:text-white transition">Air Compressors</a></li>
+                    <li><a href="#" class="hover:text-white transition">Hydraulics</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-wider mb-6">Company</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                    <li><a href="#" class="hover:text-white transition">Quality Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition">Contact</a></li>
+                    <li><a href="#" class="hover:text-white transition">Blog / News</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-slate-900 text-center text-xs text-slate-600">
+            &copy; 2025 Universal Exports BVN. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

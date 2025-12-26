@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marine Navigation & Automation Electronics | Universal Exports BVN</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        corporate: { 900: '#0B1120', 800: '#1E293B', blue: '#003366' },
+                        action: { 500: '#F97316', 600: '#EA580C' },
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        .text-justify-inter { text-align: justify; text-justify: inter-word; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <div class="bg-corporate-900 text-slate-300 text-[11px] py-2 tracking-wide uppercase border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <div class="flex gap-6">
+                <span class="flex items-center gap-1"><span class="text-green-500">●</span> Alang Yard Status: Operational</span>
+                <span class="hidden md:inline">ISO 9001:2015 & RINA Certified</span>
+            </div>
+            <div class="flex gap-6 font-bold text-white">
+                <a href="#" class="hover:text-action-500 transition">Download Brochure</a>
+                <a href="tel:+9198252XXXXX" class="hover:text-action-500 transition">+91 98252 XXXXX</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="sticky top-0 z-50 bg-white shadow-md border-b border-slate-200" id="navbar">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 bg-corporate-blue text-white flex items-center justify-center font-bold text-xl rounded-sm shadow-lg">UE</div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-corporate-900 text-xl leading-none tracking-tight">UNIVERSAL<br>EXPORTS</span>
+                        <span class="text-[9px] uppercase tracking-[0.2em] text-slate-500 mt-1">Bhavnagar • Alang</span>
+                    </div>
+                </a>
+                <div class="hidden xl:flex space-x-8 items-center text-sm font-bold text-slate-700 uppercase tracking-wide">
+                    <a href="index.html" class="hover:text-corporate-blue transition">Home</a>
+                    <a href="index.html#about" class="hover:text-corporate-blue transition">Company</a>
+                    
+                    <div x-data="{ open: false }" class="relative">
+                        <button @click="open = !open" @click.outside="open = false" class="flex items-center gap-1 hover:text-corporate-blue transition">
+                            Inventory
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div x-show="open" x-transition class="absolute top-full left-0 mt-2 w-56 bg-white shadow-xl rounded-lg border border-slate-100 py-2 z-50 normal-case font-normal text-slate-600">
+                            <a href="category-engines.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-corporate-blue">Main Engines</a>
+                            <a href="category-turbo.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-corporate-blue">Turbochargers</a>
+                            <a href="category-auxiliary.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-corporate-blue">Auxiliary Engines</a>
+                            <a href="category-compressors.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-corporate-blue">Air Compressors</a>
+                            <a href="category-separators.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-corporate-blue">Oil Purifiers</a>
+                            <a href="category-navigation.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-corporate-blue">Navigation & Auto</a>
+                            <a href="category-hydraulics.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-corporate-blue">Hydraulic Pumps</a>
+                            <a href="category-deck.html" class="block px-4 py-2 hover:bg-slate-50 hover:text-corporate-blue">Deck Machinery</a>
+                        </div>
+                    </div>
+
+                    <a href="index.html#workshop" class="hover:text-corporate-blue transition">Workshop</a>
+                    <a href="index.html#clients" class="hover:text-corporate-blue transition">Clients</a>
+                    <a href="#contact" class="bg-action-500 text-white px-6 py-3 rounded shadow hover:bg-action-600 transition hover:-translate-y-0.5">
+                        Get Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-white border-b border-slate-200 py-3">
+        <div class="max-w-7xl mx-auto px-4 text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
+            <a href="index.html" class="hover:text-corporate-blue">Home</a> <span>/</span>
+            <a href="index.html#inventory" class="hover:text-corporate-blue">Inventory</a> <span>/</span>
+            <span class="text-corporate-900">Navigation & Automation</span>
+        </div>
+    </div>
+
+    <header class="relative bg-corporate-900 text-white overflow-hidden py-20">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-r from-corporate-900 via-corporate-900/90 to-transparent"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-action-500 font-bold uppercase tracking-widest text-xs mb-2 block">Bridge & Control Room</span>
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                    Marine Electronics <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-action-500 to-yellow-500">& Automation</span>
+                </h1>
+                <p class="text-slate-300 text-lg mb-8 max-w-lg leading-relaxed">
+                    From Radar Magnetrons to Gyro Spheres. We stock tested PCBs, displays, and sensors for Furuno, JRC, Sperry, and Tokyo Keiki systems.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="product-listing.html" class="px-8 py-3 bg-action-500 text-white font-bold rounded hover:bg-action-600 transition uppercase tracking-wide text-sm">
+                        View Electronics Stock
+                    </a>
+                    <button class="px-8 py-3 bg-white/10 border border-white/20 text-white font-bold rounded hover:bg-white/20 transition uppercase tracking-wide text-sm">
+                        Download Stock List (PDF)
+                    </button>
+                </div>
+            </div>
+            <div class="hidden lg:block">
+                <div class="bg-white/5 backdrop-blur border border-white/10 p-6 rounded-xl max-w-sm ml-auto">
+                    <h4 class="font-bold text-lg mb-4 border-b border-white/10 pb-2">Testing Lab</h4>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-center justify-between">
+                            <span>Radar Power Up</span>
+                            <span class="text-green-400 font-mono">Tested</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span>Gyro Sphere</span>
+                            <span class="text-green-400 font-mono">North Seeking</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span>PCB Diagnostics</span>
+                            <span class="text-green-400 font-mono">Component Level</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span>GMDSS Check</span>
+                            <span class="text-green-400 font-mono">Operational</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-12 bg-white border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="text-center text-xs font-bold text-slate-400 uppercase tracking-widest mb-8">Supported Brands</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale">
+                <span class="text-xl font-bold font-serif">FURUNO</span>
+                <span class="text-xl font-bold font-serif">JRC</span>
+                <span class="text-xl font-bold font-serif">SPERRY MARINE</span>
+                <span class="text-xl font-bold font-serif">TOKYO KEIKI</span>
+                <span class="text-xl font-bold font-serif">YOKOGAWA</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white border-b border-slate-100">
+        <div class="max-w-4xl mx-auto px-4">
+            <span class="text-action-500 font-bold uppercase tracking-widest text-xs block mb-4">Obsolete & Current Models</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-corporate-900 mb-8">Keeping Older Systems Operational</h2>
+            
+            <div class="prose prose-slate prose-lg text-slate-600 text-justify-inter">
+                <p class="mb-6">
+                    Modern shipping relies heavily on electronics, but manufacturers often declare systems "obsolete" after just 10 years. At Universal Exports, we are the lifeline for vessels running older but perfectly functional equipment. We salvage and test electronics from vessels being recycled, providing a critical source of spare parts that are no longer available from the OEM.
+                </p>
+                <p class="mb-6">
+                    Our climate-controlled electronics lab in Bhavnagar is staffed by former radio officers and electronics engineers. We don't just sell "as is." We power up radars, test gyro compasses on a swing table, and verify PCB functionality using oscilloscopes and logic analyzers.
+                </p>
+                
+                <h3 class="text-2xl font-bold text-corporate-900 mt-10 mb-4">What We Stock</h3>
+                <ul class="list-none space-y-4 pl-0">
+                    <li class="flex gap-4">
+                        <span class="font-bold text-corporate-blue min-w-[20px]">1.</span>
+                        <span><strong>Radar Systems:</strong> Complete X-Band and S-Band radars, as well as individual components like Magnetrons, TR Cells, Modulator PCBs, and Scanner Motors.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="font-bold text-corporate-blue min-w-[20px]">2.</span>
+                        <span><strong>Gyro Compasses:</strong> Sensitive elements (spheres) are stored in proper fluid. We stock master compasses, repeaters, and inverter units for Sperry MK-37, Yokogawa CMZ, and Tokyo Keiki.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="font-bold text-corporate-blue min-w-[20px]">3.</span>
+                        <span><strong>GMDSS & Comm:</strong> VHF/MF/HF radios, Inmarsat-C terminals, and Navtex receivers. All units are tested for transmission and reception.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="font-bold text-corporate-blue min-w-[20px]">4.</span>
+                        <span><strong>Automation PCBs:</strong> Critical cards for Main Engine control (Nabco, Lyngso), Alarm Monitoring Systems, and Boiler automation.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="font-bold text-corporate-blue min-w-[20px]">5.</span>
+                        <span><strong>Displays & LCDs:</strong> Replacement screens for ECDIS, Radar, and AMS consoles. We also retrofit older CRT monitors with modern LCD kits.</span>
+                    </li>
+                </ul>
+
+                <div class="bg-blue-50 border-l-4 border-corporate-blue p-6 mt-10">
+                    <p class="text-sm font-bold text-corporate-900 italic">
+                        "A $500 PCB can save you from replacing a $50,000 system. We help you extend the life of your bridge equipment."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200">
+                <div class="w-12 h-12 bg-blue-50 text-corporate-blue flex items-center justify-center rounded mb-4 text-2xl">📡</div>
+                <h3 class="font-bold text-corporate-900 text-lg mb-2">Radar Spares</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">Magnetrons (NJRC, EEV), MIC front ends, and processor boards for Furuno FAR-21x7 and JRC JMA series.</p>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200">
+                <div class="w-12 h-12 bg-blue-50 text-corporate-blue flex items-center justify-center rounded mb-4 text-2xl">🧭</div>
+                <h3 class="font-bold text-corporate-900 text-lg mb-2">Gyro Overhaul</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">We offer service exchange for sensitive elements. Send us your defective sphere and receive a tested one.</p>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-sm border border-slate-200">
+                <div class="w-12 h-12 bg-blue-50 text-corporate-blue flex items-center justify-center rounded mb-4 text-2xl">🖥️</div>
+                <h3 class="font-bold text-corporate-900 text-lg mb-2">Automation Cards</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">Hard-to-find PCBs for older engine control systems. Tested on simulation rigs where possible.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="inventory" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <h2 class="text-3xl font-bold text-corporate-900">Featured Electronics</h2>
+                    <p class="text-slate-500 mt-2">Tested and ready to ship.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="group border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg transition">
+                    <div class="h-48 bg-slate-100 relative">
+                         <div class="absolute inset-0 bg-slate-200 flex items-center justify-center text-slate-400">Image: Furuno FAR-2117</div>
+                         <div class="absolute top-3 right-3 bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">In Stock</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-corporate-900 text-lg">Furuno FAR-2117 Radar</h3>
+                        <p class="text-xs text-slate-500 mb-4">X-Band. Complete with Processor & Keyboard.</p>
+                        <div class="flex justify-between items-center border-t border-slate-100 pt-4">
+                            <span class="font-mono text-sm text-slate-600">Tested OK</span>
+                            <span class="text-corporate-blue font-bold text-sm">View Specs →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg transition">
+                    <div class="h-48 bg-slate-100 relative">
+                         <div class="absolute inset-0 bg-slate-200 flex items-center justify-center text-slate-400">Image: Yokogawa CMZ-900</div>
+                         <div class="absolute top-3 right-3 bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">In Stock</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-corporate-900 text-lg">Yokogawa CMZ-900</h3>
+                        <p class="text-xs text-slate-500 mb-4">Gyro Compass Master Unit. Mercury Free.</p>
+                        <div class="flex justify-between items-center border-t border-slate-100 pt-4">
+                            <span class="font-mono text-sm text-slate-600">Service Exch.</span>
+                            <span class="text-corporate-blue font-bold text-sm">View Specs →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group border border-slate-200 rounded-xl overflow-hidden hover:shadow-lg transition">
+                    <div class="h-48 bg-slate-100 relative">
+                         <div class="absolute inset-0 bg-slate-200 flex items-center justify-center text-slate-400">Image: JRC JHS-770S</div>
+                         <div class="absolute top-3 right-3 bg-orange-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase">Rare Find</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-corporate-900 text-lg">JRC JHS-770S VHF</h3>
+                        <p class="text-xs text-slate-500 mb-4">Semi-Duplex. Class A DSC.</p>
+                        <div class="flex justify-between items-center border-t border-slate-100 pt-4">
+                            <span class="font-mono text-sm text-slate-600">Good Condition</span>
+                            <span class="text-corporate-blue font-bold text-sm">View Specs →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-corporate-900 rounded-2xl p-8 md:p-12 text-center relative overflow-hidden group cursor-pointer">
+                <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+                <div class="relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Browse 500+ Electronic Parts</h2>
+                    <p class="text-slate-400 mb-8 max-w-2xl mx-auto">Search by Part Number, Model Name, or Vessel Type.</p>
+                    <a href="product-listing.html" class="inline-flex items-center gap-3 bg-action-500 hover:bg-action-600 text-white px-8 py-4 rounded font-bold uppercase tracking-widest transition transform group-hover:-translate-y-1">
+                        View Full Inventory
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white" x-data="{ active: null }">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-corporate-900 mb-4">Electronics FAQs</h2>
+            <p class="text-center text-slate-500 mb-12">Technical questions about our bridge equipment.</p>
+
+            <div class="space-y-4">
+                <div class="border border-slate-200 rounded-lg overflow-hidden">
+                    <button @click="active = (active === 1 ? null : 1)" class="w-full flex justify-between items-center p-4 bg-slate-50 hover:bg-slate-100 text-left font-bold text-corporate-900">
+                        Do you offer a warranty on used PCBs?
+                        <span class="text-xl" x-text="active === 1 ? '-' : '+'"></span>
+                    </button>
+                    <div x-show="active === 1" class="p-4 text-slate-600 leading-relaxed border-t border-slate-200">
+                        Yes. All tested PCBs come with a 30-day DOA (Dead on Arrival) warranty. If the board doesn't work when installed, we will replace it or refund your money.
+                    </div>
+                </div>
+                 <div class="border border-slate-200 rounded-lg overflow-hidden">
+                    <button @click="active = (active === 2 ? null : 2)" class="w-full flex justify-between items-center p-4 bg-slate-50 hover:bg-slate-100 text-left font-bold text-corporate-900">
+                        Can you program the MMSI number?
+                        <span class="text-xl" x-text="active === 2 ? '-' : '+'"></span>
+                    </button>
+                    <div x-show="active === 2" class="p-4 text-slate-600 leading-relaxed border-t border-slate-200">
+                        For most equipment, we reset the MMSI to factory default or zero before shipping. You will need to program your vessel's MMSI upon installation. We can provide instructions for common models.
+                    </div>
+                </div>
+                 <div class="border border-slate-200 rounded-lg overflow-hidden">
+                    <button @click="active = (active === 3 ? null : 3)" class="w-full flex justify-between items-center p-4 bg-slate-50 hover:bg-slate-100 text-left font-bold text-corporate-900">
+                        How do you ship sensitive electronics?
+                        <span class="text-xl" x-text="active === 3 ? '-' : '+'"></span>
+                    </button>
+                    <div x-show="active === 3" class="p-4 text-slate-600 leading-relaxed border-t border-slate-200">
+                        We use anti-static bags for all PCBs. Gyro spheres are shipped in their original fluid-filled containers or specialized shock-proof boxes. We use DHL/FedEx for rapid air delivery worldwide.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 text-sm">
+            <div class="col-span-1 md:col-span-2">
+                <div class="text-white font-bold text-2xl mb-4">UNIVERSAL EXPORTS</div>
+                <p class="leading-relaxed mb-6 max-w-sm">We are the bridge between the world's largest ship recycling yard and the global maritime fleet. Specializing in reconditioned machinery that meets OEM specifications at a fraction of the cost.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-8 h-8 bg-slate-800 flex items-center justify-center rounded hover:bg-action-500 hover:text-white transition">in</a>
+                    <a href="#" class="w-8 h-8 bg-slate-800 flex items-center justify-center rounded hover:bg-action-500 hover:text-white transition">fb</a>
+                    <a href="#" class="w-8 h-8 bg-slate-800 flex items-center justify-center rounded hover:bg-action-500 hover:text-white transition">yt</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-wider mb-6">Inventory</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white transition">Main Engines</a></li>
+                    <li><a href="#" class="hover:text-white transition">Turbochargers</a></li>
+                    <li><a href="#" class="hover:text-white transition">Oil Separators</a></li>
+                    <li><a href="#" class="hover:text-white transition">Air Compressors</a></li>
+                    <li><a href="#" class="hover:text-white transition">Hydraulics</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold uppercase tracking-wider mb-6">Company</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                    <li><a href="#" class="hover:text-white transition">Quality Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition">Contact</a></li>
+                    <li><a href="#" class="hover:text-white transition">Blog / News</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-slate-900 text-center text-xs text-slate-600">
+            &copy; 2025 Universal Exports BVN. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
