@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CanCMS - Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        [x-cloak] { display: none !important; }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200" x-data="{ sidebarOpen: false }">
+
+    <!-- Mobile Header -->
+    <div class="flex md:hidden items-center justify-between bg-slate-900 border-b border-slate-800 p-4">
+        <div class="font-bold text-xl text-white">Can<span class="text-blue-500">CMS</span></div>
+        <button @click="sidebarOpen = !sidebarOpen" class="text-slate-400 hover:text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </div>
+
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'" class="fixed inset-y-0 left-0 z-50 w-64 bg-slate-900 border-r border-slate-800 transition-transform duration-300 ease-in-out md:relative md:translate-x-0 flex flex-col">
+            <div class="h-16 flex items-center px-6 border-b border-slate-800">
+                <div class="font-bold text-2xl tracking-tight text-white">Can<span class="text-blue-500">CMS</span></div>
+            </div>
+            
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <!-- Dashboard -->
+                <div x-data="{ open: true }">
+                    <button @click="open = !open" class="flex items-center justify-between w-full px-2 py-2 text-sm font-medium rounded-md text-white bg-slate-800/50 hover:bg-slate-800 group transition-colors">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                            Dashboard
+                        </div>
+                        <svg :class="open ? 'rotate-90' : ''" class="w-4 h-4 text-slate-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                    <div x-show="open" x-cloak class="pl-10 space-y-1 mt-1">
+                        <a href="#" class="block px-2 py-1.5 text-sm text-blue-400 font-medium">Overview</a>
+                    </div>
+                </div>
+
+                <!-- Products -->
+                <div x-data="{ open: false }" class="pt-2">
+                    <button @click="open = !open" class="flex items-center justify-between w-full px-2 py-2 text-sm font-medium text-slate-400 rounded-md hover:bg-slate-800 hover:text-white group transition-colors">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-slate-500 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                            Products
+                        </div>
+                        <svg :class="open ? 'rotate-90' : ''" class="w-4 h-4 text-slate-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                    <div x-show="open" x-cloak class="pl-10 space-y-1 mt-1">
+                        <a href="#" class="block px-2 py-1.5 text-sm text-slate-500 hover:text-white transition-colors">All Products</a>
+                        <a href="#" class="block px-2 py-1.5 text-sm text-slate-500 hover:text-white transition-colors">Create Product</a>
+                    </div>
+                </div>
+
+                <!-- Tags -->
+                <div x-data="{ open: false }" class="pt-2">
+                    <button @click="open = !open" class="flex items-center justify-between w-full px-2 py-2 text-sm font-medium text-slate-400 rounded-md hover:bg-slate-800 hover:text-white group transition-colors">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-slate-500 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                            Tags
+                        </div>
+                        <svg :class="open ? 'rotate-90' : ''" class="w-4 h-4 text-slate-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                    <div x-show="open" x-cloak class="pl-10 space-y-1 mt-1">
+                        <a href="#" class="block px-2 py-1.5 text-sm text-slate-500 hover:text-white transition-colors">All Tags</a>
+                        <a href="#" class="block px-2 py-1.5 text-sm text-slate-500 hover:text-white transition-colors">Create Tag</a>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div x-data="{ open: false }" class="pt-2">
+                    <button @click="open = !open" class="flex items-center justify-between w-full px-2 py-2 text-sm font-medium text-slate-400 rounded-md hover:bg-slate-800 hover:text-white group transition-colors">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-slate-500 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                            Categories
+                        </div>
+                        <svg :class="open ? 'rotate-90' : ''" class="w-4 h-4 text-slate-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                    <div x-show="open" x-cloak class="pl-10 space-y-1 mt-1">
+                        <a href="#" class="block px-2 py-1.5 text-sm text-slate-500 hover:text-white transition-colors">All Categories</a>
+                        <a href="#" class="block px-2 py-1.5 text-sm text-slate-500 hover:text-white transition-colors">Create Category</a>
+                    </div>
+                </div>
+
+                <!-- Inquiries -->
+                <div x-data="{ open: false }" class="pt-2">
+                    <button @click="open = !open" class="flex items-center justify-between w-full px-2 py-2 text-sm font-medium text-slate-400 rounded-md hover:bg-slate-800 hover:text-white group transition-colors">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-slate-500 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            Inquiries
+                        </div>
+                        <svg :class="open ? 'rotate-90' : ''" class="w-4 h-4 text-slate-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                    <div x-show="open" x-cloak class="pl-10 space-y-1 mt-1">
+                        <a href="#" class="block px-2 py-1.5 text-sm text-slate-500 hover:text-white transition-colors">All Inquiries</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="p-4 border-t border-slate-800">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-sm font-bold text-white shadow-lg">A</div>
+                    <div>
+                        <div class="text-sm font-medium text-white">Admin User</div>
+                        <div class="text-xs text-slate-500">admin@canstart.in</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto bg-slate-950 relative">
+            <!-- Background Glow -->
+            <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                <div class="absolute top-[-10%] left-[20%] w-[30%] h-[30%] bg-blue-600/10 rounded-full blur-[100px]"></div>
+            </div>
+
+            <header class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-10">
+                <div class="px-6 py-4 flex justify-between items-center">
+                    <h1 class="text-xl font-bold text-white">Dashboard</h1>
+                    <div class="flex items-center gap-4">
+                        <button class="p-2 text-slate-400 hover:text-white transition-colors relative">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                            <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
+                        </button>
+                        <a href="login.html" class="text-sm text-slate-400 hover:text-white transition-colors">Logout</a>
+                    </div>
+                </div>
+            </header>
+
+            <div class="p-6 relative z-0">
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 shadow-lg hover:border-slate-700 transition-colors">
+                        <div class="text-sm font-medium text-slate-400 mb-1">Total Products</div>
+                        <div class="text-3xl font-bold text-white">124</div>
+                        <div class="mt-2 text-xs text-green-400 flex items-center">
+                            <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                            +12% from last month
+                        </div>
+                    </div>
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 shadow-lg hover:border-slate-700 transition-colors">
+                        <div class="text-sm font-medium text-slate-400 mb-1">Active Inquiries</div>
+                        <div class="text-3xl font-bold text-white">12</div>
+                        <div class="mt-2 text-xs text-blue-400 flex items-center">
+                            <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                            +2 new today
+                        </div>
+                    </div>
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 shadow-lg hover:border-slate-700 transition-colors">
+                        <div class="text-sm font-medium text-slate-400 mb-1">Categories</div>
+                        <div class="text-3xl font-bold text-white">8</div>
+                    </div>
+                    <div class="bg-slate-900 p-6 rounded-xl border border-slate-800 shadow-lg hover:border-slate-700 transition-colors">
+                        <div class="text-sm font-medium text-slate-400 mb-1">Tags</div>
+                        <div class="text-3xl font-bold text-white">24</div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="bg-slate-900 rounded-xl border border-slate-800 shadow-lg overflow-hidden">
+                    <div class="p-6 border-b border-slate-800 flex justify-between items-center">
+                        <h2 class="text-lg font-bold text-white">Recent Inquiries</h2>
+                        <button class="text-sm text-blue-400 hover:text-blue-300">View All</button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm text-slate-400">
+                            <thead class="bg-slate-950/50 text-slate-200 font-medium border-b border-slate-800">
+                                <tr>
+                                    <th class="px-6 py-4">ID</th>
+                                    <th class="px-6 py-4">Name</th>
+                                    <th class="px-6 py-4">Company</th>
+                                    <th class="px-6 py-4">Date</th>
+                                    <th class="px-6 py-4">Status</th>
+                                    <th class="px-6 py-4">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800">
+                                <tr class="hover:bg-slate-800/50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-slate-500">#1024</td>
+                                    <td class="px-6 py-4 text-white font-medium">John Doe</td>
+                                    <td class="px-6 py-4">Maersk Line</td>
+                                    <td class="px-6 py-4">Oct 24, 2025</td>
+                                    <td class="px-6 py-4"><span class="px-2.5 py-1 bg-green-500/10 text-green-400 border border-green-500/20 rounded-full text-xs font-medium">New</span></td>
+                                    <td class="px-6 py-4"><button class="text-slate-400 hover:text-white"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg></button></td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-slate-500">#1023</td>
+                                    <td class="px-6 py-4 text-white font-medium">Jane Smith</td>
+                                    <td class="px-6 py-4">MSC</td>
+                                    <td class="px-6 py-4">Oct 23, 2025</td>
+                                    <td class="px-6 py-4"><span class="px-2.5 py-1 bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 rounded-full text-xs font-medium">Pending</span></td>
+                                    <td class="px-6 py-4"><button class="text-slate-400 hover:text-white"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg></button></td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/50 transition-colors">
+                                    <td class="px-6 py-4 font-mono text-slate-500">#1022</td>
+                                    <td class="px-6 py-4 text-white font-medium">Robert Johnson</td>
+                                    <td class="px-6 py-4">CMA CGM</td>
+                                    <td class="px-6 py-4">Oct 22, 2025</td>
+                                    <td class="px-6 py-4"><span class="px-2.5 py-1 bg-slate-700/30 text-slate-400 border border-slate-700/50 rounded-full text-xs font-medium">Processed</span></td>
+                                    <td class="px-6 py-4"><button class="text-slate-400 hover:text-white"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center text-xs text-slate-600">
+                    Powered by <a href="https://canstart.in" target="_blank" class="text-blue-500 hover:text-blue-400 transition-colors">CanCMS</a> &copy; 2025 Canstart Technologies
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
