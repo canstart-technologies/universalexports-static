@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marine Hydraulic Pump & Motor Catalog | Deck Machinery | Universal Exports BVN</title>
+    <meta name="description" content="Browse our catalog of marine hydraulic pumps and motors including Kawasaki, Fukushima, IHI, Staffa, Sauer, and Norwinch. Source reconditioned hydraulic units from Alang ship breaking yard.">
+    <meta name="keywords" content="marine hydraulic pump, hydraulic motor, fukushima hydraulics, ihi crane pump, staffa motor, kawasaki steering pump, norwinch, ship hydraulic spares">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        corporate: { 900: '#0B1120', 800: '#1E293B', blue: '#003366' },
+                        action: { 500: '#F97316', 600: '#EA580C' },
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased" x-data="catalogApp()">
+
+    <!-- Top Bar -->
+    <div class="bg-corporate-900 text-slate-300 text-[11px] py-2 tracking-wide uppercase border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <div class="flex gap-6">
+                <span class="flex items-center gap-1"><span class="text-green-500">●</span> Alang Yard Status: Operational</span>
+            </div>
+            <div class="flex gap-6 font-bold text-white">
+                <a href="tel:+9198252XXXXX" class="hover:text-action-500 transition">+91 98252 XXXXX</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nav -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md border-b border-slate-200" id="navbar">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 bg-corporate-blue text-white flex items-center justify-center font-bold text-xl rounded-sm shadow-lg">UE</div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-corporate-900 text-xl leading-none tracking-tight">UNIVERSAL<br>EXPORTS</span>
+                        <span class="text-[9px] uppercase tracking-[0.2em] text-slate-500 mt-1">Bhavnagar • Alang</span>
+                    </div>
+                </a>
+                <div class="hidden xl:flex space-x-8 items-center text-sm font-bold text-slate-700 uppercase tracking-wide">
+                    <a href="index.html" class="hover:text-corporate-blue transition">Home</a>
+                    <a href="category-engines.html" class="hover:text-corporate-blue transition">Main Engines</a>
+                    <a href="category-auxiliary.html" class="hover:text-corporate-blue transition">Auxiliary Engines</a>
+                    <a href="category-hydraulics.html" class="hover:text-corporate-blue transition">Hydraulics</a>
+                    <a href="#contact" class="bg-action-500 text-white px-6 py-3 rounded shadow hover:bg-action-600 transition hover:-translate-y-0.5">
+                        Get Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="max-w-3xl">
+                <span class="text-action-500 font-bold uppercase tracking-widest text-xs mb-2 block">Comprehensive Inventory</span>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-corporate-900 mb-6 leading-tight">
+                    Hydraulic Pump & Motor <br>Catalog
+                </h1>
+                <p class="text-slate-600 text-lg leading-relaxed mb-8">
+                    We stock reconditioned hydraulic pumps and motors for deck machinery, steering gear, and cargo cranes. Sourced from ship recycling yards in Alang, our inventory includes axial piston, vane, and gear types.
+                </p>
+                <div class="flex gap-4 text-sm font-bold text-slate-500">
+                    <span class="flex items-center gap-2"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Updated Weekly</span>
+                    <span class="flex items-center gap-2"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Pressure Tested</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-12 bg-slate-50 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-8">
+            
+            <!-- Sidebar Filters -->
+            <div class="w-full md:w-1/4">
+                <div class="bg-white rounded-lg shadow-sm border border-slate-200 sticky top-24 p-2 max-h-[80vh] overflow-y-auto">
+                    <h3 class="px-4 py-3 text-xs font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100 mb-2">Filter by Make</h3>
+                    <template x-for="make in makes" :key="make">
+                        <button @click="selectedMake = make; scrollToTop()" 
+                                :class="{'bg-corporate-blue text-white shadow-md': selectedMake === make, 'text-slate-600 hover:bg-slate-100': selectedMake !== make}"
+                                class="w-full text-left px-4 py-3 rounded-md text-sm font-bold transition flex justify-between items-center mb-1">
+                            <span x-text="make"></span>
+                            <span :class="{'text-white/80': selectedMake === make, 'text-slate-400': selectedMake !== make}" class="text-xs font-normal" x-text="engineData[make] ? engineData[make].length : 0"></span>
+                        </button>
+                    </template>
+                </div>
+            </div>
+
+            <!-- List Area -->
+            <div class="w-full md:w-3/4" id="contentArea">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8 min-h-[500px]">
+                    
+                    <div x-show="selectedMake" x-transition.opacity>
+                        <div class="flex items-end justify-between border-b border-slate-100 pb-6 mb-8">
+                            <div>
+                                <h2 class="text-3xl font-bold text-corporate-900 mb-2" x-text="selectedMake"></h2>
+                                <p class="text-slate-500">
+                                    Browse available hydraulic models for <span x-text="selectedMake"></span>. We stock both pumps and motors.
+                                </p>
+                            </div>
+                            <div class="hidden md:block">
+                                <a href="product-listing.html" class="inline-flex items-center gap-2 text-action-600 font-bold hover:text-action-700 transition">
+                                    Search Stock
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <template x-for="model in engineData[selectedMake]" :key="model">
+                                <div class="group relative bg-slate-50 border border-slate-200 rounded-lg p-4 hover:border-action-500 hover:shadow-md transition cursor-pointer">
+                                    <h3 class="font-mono font-bold text-slate-700 group-hover:text-corporate-blue" x-text="model"></h3>
+                                    <div class="mt-2 flex gap-2 text-[10px] uppercase font-bold text-slate-400">
+                                        <span>Pump / Motor</span>
+                                        <span>•</span>
+                                        <span>Tested</span>
+                                    </div>
+                                    <a :href="'product-listing.html?q=' + model" class="absolute inset-0 z-10" aria-label="Search availability"></a>
+                                </div>
+                            </template>
+                        </div>
+                        
+                        <div x-show="!engineData[selectedMake] || engineData[selectedMake].length === 0" class="text-center py-20 text-slate-400">
+                            No active inventory listed for this manufacturer currently. Please contact us directly.
+                        </div>
+
+                        <div class="mt-12 p-6 bg-blue-50 border border-blue-100 rounded-lg">
+                            <h4 class="font-bold text-corporate-blue mb-2">Technical Note:</h4>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                All hydraulic units are stripped, inspected, and tested on our hydraulic test bench. We check cylinder blocks, pistons, valve plates, and swash plates for wear and lapping is done where necessary.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div x-show="!selectedMake" class="flex flex-col items-center justify-center h-96 text-center">
+                        <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center text-slate-300 mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-700 mb-2">Select a Manufacturer</h3>
+                        <p class="text-slate-500 max-w-sm">Choose a manufacturer from the sidebar to view our detailed hydraulic catalog.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+             <div class="text-white font-bold text-2xl mb-4">UNIVERSAL EXPORTS</div>
+             <p class="text-sm">Global Marine Machinery Specialists</p>
+             <div class="mt-8 text-xs text-slate-600">&copy; 2026 Universal Exports BVN. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        function catalogApp() {
+            return {
+                selectedMake: 'FUKUSHIMA',
+                makes: ["DENFOS", "EBRA HYDRO STABIL", "FUKUSHIMA", "HUGGLLANDS", "HYDROMATIC", "IHI", "KAWASAKI AXIAL", "KAWASAKI STAFF", "KAYABA", "LENDEY", "MITSUBISHI JENNEY", "NIKKO THERMOFLEX", "NORWINCH", "SAUER", "STAFFA"],
+                engineData: {
+                    "DENFOS": ["50", "100", "150"],
+                    "EBRA HYDRO STABIL": ["OHM 3F", "OHM 5F", "PV 105 GRF", "PV 186 ORFD"],
+                    "FUKUSHIMA": ["MA5", "MA7", "MA8B/C", "MA10B/C", "MGA8B/C", "DC 17", "DG 19", "G-16", "G-17", "G-18", "G-19", "G-20", "G-420", "FG-16", "FG-17", "FG-18", "FG-19", "FG-20", "FG-170", "FG-318"],
+                    "HUGGLLANDS": ["A6185R", "6170"],
+                    "HYDROMATIC": ["A2F 28", "A2F 45", "A2F 55", "A2F 80", "A2F 107", "A2F 160", "A2F 225", "A2F 335", "A2F 468", "A2F 474", "A2F 1000", "A2V 28", "A2V 55", "A2V 45", "A2V 80", "F2V 80", "A2V 107", "A2V 225"],
+                    "IHI": ["HLS", "HNK", "HLA", "HKM", "HVL", "HVLK", "HPS 4", "HPS 5", "HPS 6", "HPS 7", "HPS 8", "HPD4-5", "HPD 5-4", "HPD 6-5", "HPD7-7", "HPD 8-8", "66 N 48-48 RK", "66 N 41-41", "6N 67K"],
+                    "KAWASAKI AXIAL": ["BZ 740 S100R", "BZ725-110R", "BZ 732"],
+                    "KAWASAKI STAFF": ["S x 510-110VMNT", "S x 510-110 VNT", "S x 508 AM 110 TM"],
+                    "KAYABA": ["MR 1800T", "MR 900T"],
+                    "LENDEY": ["2504", "BMF 140 1F", "MF 105", "PF 35", "PF 50", "PVB 100 R", "PVB 70R"],
+                    "MITSUBISHI JENNEY": ["3VSH 2B-05-LDR-62", "3VSH2B-15-COR-0", "3VSH 2-2-OOR", "06V H2B 11 LOR 18"],
+                    "NIKKO THERMOFLEX": ["PTV 40", "PTV 100", "PTV 140", "PTV 160", "PTV 250", "PTV 330"],
+                    "NORWINCH": ["M 380", "M 204", "M 540", "M 140", "PH-8", "PH-11"],
+                    "SAUER": ["SMF 23", "SMF21", "SMF 24", "SPV 27", "OPV 27", "SPV 23", "SPV 21", "SPV 24"],
+                    "STAFFA": ["B200", "B400"]
+                },
+                scrollToTop() {
+                    document.getElementById('contentArea').scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+    </script>
+</body>
+</html>

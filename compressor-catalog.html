@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marine Air Compressor Catalog | Starting & Emergency | Universal Exports BVN</title>
+    <meta name="description" content="Browse our catalog of marine air compressor models including Tanabe, Sperre, Yanmar, Hatlapa, Hamworthy, and Atlas Copco. Source reconditioned compressors and spares from Alang ship breaking yard.">
+    <meta name="keywords" content="marine air compressor, starting air compressor, tanabe H-64, sperre HL2/120, yanmar compressor, hatlapa, hamworthy, ship compressor spares">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        corporate: { 900: '#0B1120', 800: '#1E293B', blue: '#003366' },
+                        action: { 500: '#F97316', 600: '#EA580C' },
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased" x-data="catalogApp()">
+
+    <!-- Top Bar -->
+    <div class="bg-corporate-900 text-slate-300 text-[11px] py-2 tracking-wide uppercase border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <div class="flex gap-6">
+                <span class="flex items-center gap-1"><span class="text-green-500">●</span> Alang Yard Status: Operational</span>
+            </div>
+            <div class="flex gap-6 font-bold text-white">
+                <a href="tel:+9198252XXXXX" class="hover:text-action-500 transition">+91 98252 XXXXX</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nav -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md border-b border-slate-200" id="navbar">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 bg-corporate-blue text-white flex items-center justify-center font-bold text-xl rounded-sm shadow-lg">UE</div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-corporate-900 text-xl leading-none tracking-tight">UNIVERSAL<br>EXPORTS</span>
+                        <span class="text-[9px] uppercase tracking-[0.2em] text-slate-500 mt-1">Bhavnagar • Alang</span>
+                    </div>
+                </a>
+                <div class="hidden xl:flex space-x-8 items-center text-sm font-bold text-slate-700 uppercase tracking-wide">
+                    <a href="index.html" class="hover:text-corporate-blue transition">Home</a>
+                    <a href="category-engines.html" class="hover:text-corporate-blue transition">Main Engines</a>
+                    <a href="category-auxiliary.html" class="hover:text-corporate-blue transition">Auxiliary Engines</a>
+                    <a href="category-compressors.html" class="hover:text-corporate-blue transition">Air Compressors</a>
+                    <a href="#contact" class="bg-action-500 text-white px-6 py-3 rounded shadow hover:bg-action-600 transition hover:-translate-y-0.5">
+                        Get Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="max-w-3xl">
+                <span class="text-action-500 font-bold uppercase tracking-widest text-xs mb-2 block">Comprehensive Inventory</span>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-corporate-900 mb-6 leading-tight">
+                    Air Compressor <br>Model Catalog
+                </h1>
+                <p class="text-slate-600 text-lg leading-relaxed mb-8">
+                    We stock reconditioned main starting air and emergency compressors for major marine manufacturers. Sourced from ship recycling yards in Alang, our inventory is pressure tested and certified.
+                </p>
+                <div class="flex gap-4 text-sm font-bold text-slate-500">
+                    <span class="flex items-center gap-2"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Updated Weekly</span>
+                    <span class="flex items-center gap-2"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 30 Bar / 40 Bar</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-12 bg-slate-50 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-8">
+            
+            <!-- Sidebar Filters -->
+            <div class="w-full md:w-1/4">
+                <div class="bg-white rounded-lg shadow-sm border border-slate-200 sticky top-24 p-2 max-h-[80vh] overflow-y-auto">
+                    <h3 class="px-4 py-3 text-xs font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100 mb-2">Filter by Make</h3>
+                    <template x-for="make in makes" :key="make">
+                        <button @click="selectedMake = make; scrollToTop()" 
+                                :class="{'bg-corporate-blue text-white shadow-md': selectedMake === make, 'text-slate-600 hover:bg-slate-100': selectedMake !== make}"
+                                class="w-full text-left px-4 py-3 rounded-md text-sm font-bold transition flex justify-between items-center mb-1">
+                            <span x-text="make"></span>
+                            <span :class="{'text-white/80': selectedMake === make, 'text-slate-400': selectedMake !== make}" class="text-xs font-normal" x-text="engineData[make] ? engineData[make].length : 0"></span>
+                        </button>
+                    </template>
+                </div>
+            </div>
+
+            <!-- List Area -->
+            <div class="w-full md:w-3/4" id="contentArea">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8 min-h-[500px]">
+                    
+                    <div x-show="selectedMake" x-transition.opacity>
+                        <div class="flex items-end justify-between border-b border-slate-100 pb-6 mb-8">
+                            <div>
+                                <h2 class="text-3xl font-bold text-corporate-900 mb-2" x-text="selectedMake"></h2>
+                                <p class="text-slate-500">
+                                    Browse available air compressor models for <span x-text="selectedMake"></span>. Contact us for complete units or spares (crankshafts, cylinders, valves).
+                                </p>
+                            </div>
+                            <div class="hidden md:block">
+                                <a href="product-listing.html" class="inline-flex items-center gap-2 text-action-600 font-bold hover:text-action-700 transition">
+                                    Search Stock
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <template x-for="model in engineData[selectedMake]" :key="model">
+                                <div class="group relative bg-slate-50 border border-slate-200 rounded-lg p-4 hover:border-action-500 hover:shadow-md transition cursor-pointer">
+                                    <h3 class="font-mono font-bold text-slate-700 group-hover:text-corporate-blue" x-text="model"></h3>
+                                    <div class="mt-2 flex gap-2 text-[10px] uppercase font-bold text-slate-400">
+                                        <span>Complete Unit</span>
+                                        <span>•</span>
+                                        <span>Spares</span>
+                                    </div>
+                                    <a :href="'product-listing.html?q=' + model" class="absolute inset-0 z-10" aria-label="Search availability"></a>
+                                </div>
+                            </template>
+                        </div>
+                        
+                        <div x-show="!engineData[selectedMake] || engineData[selectedMake].length === 0" class="text-center py-20 text-slate-400">
+                            No active inventory listed for this manufacturer currently. Please contact us directly.
+                        </div>
+
+                        <div class="mt-12 p-6 bg-blue-50 border border-blue-100 rounded-lg">
+                            <h4 class="font-bold text-corporate-blue mb-2">Technical Note:</h4>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                Our compressors are stripped, inspected, and tested. We check cylinder liners for ovality, replace piston rings, and lap valves slightly to ensure efficiency. Block pressure tests are standard to 1.5x working pressure.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div x-show="!selectedMake" class="flex flex-col items-center justify-center h-96 text-center">
+                        <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center text-slate-300 mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-700 mb-2">Select a Manufacturer</h3>
+                        <p class="text-slate-500 max-w-sm">Choose a manufacturer from the sidebar to view our detailed compressor catalog.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+             <div class="text-white font-bold text-2xl mb-4">UNIVERSAL EXPORTS</div>
+             <p class="text-sm">Global Marine Machinery Specialists</p>
+             <div class="mt-8 text-xs text-slate-600">&copy; 2026 Universal Exports BVN. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        function catalogApp() {
+            return {
+                selectedMake: 'TANABE',
+                makes: ["ATLAS COPCO", "CEGIELISKI", "HAMWORTHY", "HATLAPA", "MATSUBARA", "REAVELL", "SPERRE", "TANABE", "YANMAR", "ZWICKAUER"],
+                engineData: {
+                    "ATLAS COPCO": ["BT 2", "BT4", "BT5"],
+                    "CEGIELISKI": ["SC-115", "SC1-115", "SC2-115", "SD1-135", "SE-160A", "SE2-160A", "SF-125", "SF1-125", "SF2-125"],
+                    "HAMWORTHY": ["2SF42", "2TF5", "2TF54", "2TM6", "2TM61", "2TM62", "2TM63", "V-150"],
+                    "HATLAPA": ["L100", "L13", "L18", "L20", "L28", "L35", "L45", "L50", "L80", "LHD25", "LHD40", "LHD25-IN", "W110", "W140", "W220", "W25", "W80", "W280", "W30", "W330", "W420", "W45", "W55", "W600", "WH55", "WH80", "WH40-IN"],
+                    "MATSUBARA": ["MS-92A"],
+                    "REAVELL": ["CSA 6E MARK7", "CSA 7", "CSA 7 MARK9", "CSA 8A", "CSA 8E"],
+                    "SPERRE": ["HL/105", "HL2/105", "HL2/120", "HL2/140", "HL2/160", "HL2/77", "HL2/90", "HLF-2/77", "HV 1/140", "HV1/156", "HV2/200", "HV2/210", "HV2/219", "HV2/220", "HV2/240", "HV2/270", "HV2/285", "HV2/300", "HV1/120", "LL2/105", "LL2/120", "LL2/140", "LL2/160", "LV2/200", "LV2/210", "LV2/220"],
+                    "TANABE": ["TANABE 296C", "H-264", "H-273", "H-274", "H-63", "H-64", "H-73", "H-74", "HC-264A", "HC-265", "HC-265A", "HC-265A YG", "HC-275", "HC-275A", "HC-54", "HC-277 AYL", "HC-54A", "HC-64", "HC-65", "HC-65A", "LHC-277A", "LHC-254A", "LHC-565A", "LHC-54A", "LHC-54B", "LSHC-20B", "LSHC-30A", "OS-54A", "SHC-294C", "SHC-295D", "SHC-296D", "VLH-74A", "VLHOS-74"],
+                    "YANMAR": ["SC-7N", "SC-10N", "SC-15N", "SC-20N", "SC-25N", "SC-30N", "SC-40N", "SC-50N", "SC-5N", "SC-60N", "SC-75N/30N"],
+                    "ZWICKAUER": ["2S1-125C", "2S1-125C/2S2-125E", "2S2-125E", "2S2-126E"]
+                },
+                scrollToTop() {
+                    document.getElementById('contentArea').scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+    </script>
+</body>
+</html>

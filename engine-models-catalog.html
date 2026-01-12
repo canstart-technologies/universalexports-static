@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Marine Engine Model Catalog | Main & Auxiliary Engines | Universal Exports BVN</title>
+    <meta name="description" content="Browse our extensive catalog of marine diesel engine models including MAN B&W, Wartsila, Yanmar, Daihatsu, Sulzer, Caterpillar, and more. Source reconditioned spares for specific engine types from Alang ship breaking yard.">
+    <meta name="keywords" content="marine engine catalog, ship engine models, man b&w engine types, yanmar marine diesel models, daihatsu engine list, sulzer rta models, wartsila vasa models, makita engines, akasaka diesels">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        corporate: { 900: '#0B1120', 800: '#1E293B', blue: '#003366' },
+                        action: { 500: '#F97316', 600: '#EA580C' },
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased" x-data="catalogApp()">
+
+    <!-- Top Bar -->
+    <div class="bg-corporate-900 text-slate-300 text-[11px] py-2 tracking-wide uppercase border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <div class="flex gap-6">
+                <span class="flex items-center gap-1"><span class="text-green-500">●</span> Alang Yard Status: Operational</span>
+            </div>
+            <div class="flex gap-6 font-bold text-white">
+                <a href="tel:+9198252XXXXX" class="hover:text-action-500 transition">+91 98252 XXXXX</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nav -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md border-b border-slate-200" id="navbar">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 bg-corporate-blue text-white flex items-center justify-center font-bold text-xl rounded-sm shadow-lg">UE</div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-corporate-900 text-xl leading-none tracking-tight">UNIVERSAL<br>EXPORTS</span>
+                        <span class="text-[9px] uppercase tracking-[0.2em] text-slate-500 mt-1">Bhavnagar • Alang</span>
+                    </div>
+                </a>
+                <div class="hidden xl:flex space-x-8 items-center text-sm font-bold text-slate-700 uppercase tracking-wide">
+                    <a href="index.html" class="hover:text-corporate-blue transition">Home</a>
+                    <a href="category-engines.html" class="hover:text-corporate-blue transition">Main Engines</a>
+                    <a href="category-auxiliary.html" class="hover:text-corporate-blue transition">Auxiliary Engines</a>
+                    <a href="#contact" class="bg-action-500 text-white px-6 py-3 rounded shadow hover:bg-action-600 transition hover:-translate-y-0.5">
+                        Get Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="max-w-3xl">
+                <span class="text-action-500 font-bold uppercase tracking-widest text-xs mb-2 block">Comprehensive Inventory</span>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-corporate-900 mb-6 leading-tight">
+                    Marine Engine Model Catalog
+                </h1>
+                <p class="text-slate-600 text-lg leading-relaxed mb-8">
+                    We stock reconditioned spares and complete units for over 20+ major marine engine manufacturers. Sourced from ship recycling yards in Alang, our inventory covers both Main Propulsion Engines and Auxiliary Generator Sets.
+                </p>
+                <div class="flex gap-4 text-sm font-bold text-slate-500">
+                    <span class="flex items-center gap-2"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Updated Weekly</span>
+                    <span class="flex items-center gap-2"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> OEM Standards</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-12 bg-slate-50 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-8">
+            
+            <!-- Sidebar Filters -->
+            <div class="w-full md:w-1/4">
+                <div class="bg-white rounded-lg shadow-sm border border-slate-200 sticky top-24 p-2 max-h-[80vh] overflow-y-auto">
+                    <h3 class="px-4 py-3 text-xs font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100 mb-2">Filter by Make</h3>
+                    <template x-for="make in makes" :key="make">
+                        <button @click="selectedMake = make; scrollToTop()" 
+                                :class="{'bg-corporate-blue text-white shadow-md': selectedMake === make, 'text-slate-600 hover:bg-slate-100': selectedMake !== make}"
+                                class="w-full text-left px-4 py-3 rounded-md text-sm font-bold transition flex justify-between items-center mb-1">
+                            <span x-text="make"></span>
+                            <span :class="{'text-white/80': selectedMake === make, 'text-slate-400': selectedMake !== make}" class="text-xs font-normal" x-text="engineData[make] ? engineData[make].length : 0"></span>
+                        </button>
+                    </template>
+                </div>
+            </div>
+
+            <!-- List Area -->
+            <div class="w-full md:w-3/4" id="contentArea">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8 min-h-[500px]">
+                    
+                    <div x-show="selectedMake" x-transition.opacity>
+                        <div class="flex items-end justify-between border-b border-slate-100 pb-6 mb-8">
+                            <div>
+                                <h2 class="text-3xl font-bold text-corporate-900 mb-2" x-text="selectedMake"></h2>
+                                <p class="text-slate-500">
+                                    Browse available models for <span x-text="selectedMake"></span>. Contact us for specific serial numbers or spares availability.
+                                </p>
+                            </div>
+                            <div class="hidden md:block">
+                                <a href="product-listing.html" class="inline-flex items-center gap-2 text-action-600 font-bold hover:text-action-700 transition">
+                                    Search Stock
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <template x-for="model in engineData[selectedMake]" :key="model">
+                                <div class="group relative bg-slate-50 border border-slate-200 rounded-lg p-4 hover:border-action-500 hover:shadow-md transition cursor-pointer">
+                                    <h3 class="font-mono font-bold text-slate-700 group-hover:text-corporate-blue" x-text="model"></h3>
+                                    <div class="mt-2 flex gap-2 text-[10px] uppercase font-bold text-slate-400">
+                                        <span>Spares</span>
+                                        <span>•</span>
+                                        <span>Complete</span>
+                                    </div>
+                                    <a :href="'product-listing.html?q=' + model" class="absolute inset-0 z-10" aria-label="Search availability"></a>
+                                </div>
+                            </template>
+                        </div>
+                        
+                        <div x-show="!engineData[selectedMake] || engineData[selectedMake].length === 0" class="text-center py-20 text-slate-400">
+                            No active inventory listed for this manufacturer currently. Please contact us directly.
+                        </div>
+
+                        <div class="mt-12 p-6 bg-blue-50 border border-blue-100 rounded-lg">
+                            <h4 class="font-bold text-corporate-blue mb-2">Technical Note:</h4>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                Our inventory includes both 2-stroke and 4-stroke engines. For older discontinued <span x-text="selectedMake"></span> models, we often stock "Good Used" components that are no longer available from the OEM. All parts are inspected to Class Society standards.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div x-show="!selectedMake" class="flex flex-col items-center justify-center h-96 text-center">
+                        <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center text-slate-300 mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-700 mb-2">Select a Manufacturer</h3>
+                        <p class="text-slate-500 max-w-sm">Choose an engine make from the sidebar to view our detailed model catalog.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+             <div class="text-white font-bold text-2xl mb-4">UNIVERSAL EXPORTS</div>
+             <p class="text-sm">Global Marine Machinery Specialists</p>
+             <div class="mt-8 text-xs text-slate-600">&copy; 2026 Universal Exports BVN. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        function catalogApp() {
+            return {
+                selectedMake: 'MAN B&W',
+                makes: ["AKASAKA", "B&W", "BERGEN", "BLACKSTONE", "CATERPILLAR", "DAIHATSU", "DEUTZ", "FIAT", "HANSHIN", "MAK", "MAN B&W", "MAKITA", "MIRRLEES", "MITSUBISHI", "MITSUI", "MTU", "MWM", "NIIGATA", "NOHAB", "PIELSTICK", "RUSTON", "SKL", "STORK", "SULZER", "WARTSILA", "YANMAR"],
+                engineData: {
+                    "AKASAKA": [ "AKASAKA UEC52/105D", "AKASAKA UET45/75C", "AKASAKA UET45/80D", "AKASAKA A", "AKASAKA AH40", "AKASAKA AH38", "AKASAKA DM", "AKASAKA A31", "AKASAKA AH40D", "AKASAKA AH38SS", "AKASAKA DM30", "AKASAKA AH30", "AKASAKA AH 36" ],
+                    "B&W": [ "B&W 650VT2BF 110", "B&W 6L35MC", "B&W L67GB", "B&W MC", "B&W 674VT2BF 160", "B&W 6L45GFCA", "B&W L67GBE", "B&W MC SERIES", "B&W 6K67GF", "B&W L60MC", "B&W L67GFCA", "B&W MCE", "B&W 6K74EF", "B&W 6L67GFCA", "B&W L70MC", "B&W S28LH-2", "B&W GF L67GF", "B&W 6L70MC", "B&W L80GF", "B&W S28LH-4", "B&W K EF", "B&W GV23,5/33", "B&W L80GFC", "B&W S28LH-4E", "B&W 23MTBH30", "B&W GV28,5/32", "B&W L80GFCA", "B&W S35MC", "B&W GV30/45", "B&W L80MC", "B&W K60MC-E", "B&W 25MTH40", "B&W 40/45", "B&W L90MC", "B&W K62EF", "B&W 28", "B&W 42VT2BF", "B&W K42EF", "B&W K67GF", "B&W 28/32", "B&W 42VT2BF90", "B&W K45GF", "B&W K70MC", "B&W 32", "B&W 74VT2BF", "B&W K45GFC", "B&W K74EF", "B&W 35MC", "B&W 74VT2BF 160", "B&W K45GFCA", "B&W K80MC", "B&W 7K80GF", "B&W 74VTBF 160", "B&W K84EF", "B&W RV VV 52/55", "B&W 7L42MC", "B&W 74VTF 140", "B&W K90GF", "B&W L23/30", "B&W 7L6GFCA", "B&W 750VT2BF 160", "B&W K90GFC", "B&W L23/30A", "B&W 7S35MC", "B&W 6T23LH", "B&W K90GFCA", "B&W L23/30H", "B&W 80MC", "B&W S50MC", "B&W T23 HH", "B&W T23H/V23H", "B&W 84VT2BF", "B&W S50MCE", "B&W T23 LH", "B&W T23HH", "B&W 84VT2BF 160", "B&W S70MCE", "B&W T23 LH-4", "B&W T23LH", "B&W 50VBF 90", "B&W 90MC", "B&W T23 LU", "B&W T23LH-4", "B&W 50VF 90", "B&W 950VTBF 110", "B&W L28/32", "B&W T23LH-4E", "B&W 50VT2BF", "B&W 8K74EF", "B&W L28/32A", "B&W VV 52/55", "B&W 50VT2BF 110", "B&W 9K80GF", "B&W L28/32H", "B&W V23 HU", "B&W 50VTBF 110", "B&W DKRN 50/110-2", "B&W L28/32V", "B&W V23 LH", "B&W 550VT2BF 110", "B&W DKRN 74/160-2", "B&W L32/40", "B&W V23 LH-4", "B&W 550VTBF 110", "B&W DKRN 74/160-3", "B&W L35MC", "B&W V23 LU", "B&W 62VT2 BF", "B&W EF K84EF", "B&W L35MC/MCE", "B&W V28LH-2", "B&W 62VT2BF 140", "B&W L45GB", "B&W L40/54A", "B&W V28-LH-4", "B&W 62VTBF 115", "B&W L45GBE", "B&W L/V/28/32", "B&W V28/32A", "B&W 62VTBF 140", "B&W L45GFCA", "B&W SERIES 28", "B&W V28/32H", "B&W 62VTF 115", "B&W L50MC", "B&W L55GFCA", "B&W L55GF" ],
+                    "BERGEN": [ "BERGEN", "BERGEN RSGB", "BERGEN RTGB6", "BERGEN LB/LS", "BERGEN DIESEL", "BERGEN LSGB", "BERGEN B-MOTOR", "BERGEN LDG", "BERGEN DP", "BERGEN RG", "BERGEN K-MOTOR", "BERGEN RTGB" ],
+                    "BLACKSTONE": [ "BLACKSTONE ELS", "BLACKSTONE ES", "BLACKSTONE MKI", "BLACKSTONE MKII", "BLACKSTONE ER", "BLACKSTONE EV", "BLACKSTONE" ],
+                    "CATERPILLAR": [ "CATERPILLAR 3406", "CAT 3306", "CATERPILLAR 3408", "CATERPILLAR 3412", "CATERPILLAR 3508", "CAT 3406TA", "CATERPILLAR 3406B", "CATERPILLAR 3512B", "CATERPILLAR3516DITA", "CAT 3408TA", "CATERPILLAR 3412E", "CATERPILLAR 3512", "CATERPILLAR 3412TA", "CAT 3412DITA", "CAT 3508TA", "CATERPILLAR 3516", "CATERPILLAR 3606TA", "CAT 3612TA", "CATERPILLAR 3512TA", "CATERPILLAR 3516B", "CATERPILLAR D398", "CAT 3616TA", "CAT 3508B", "CATERPILLAR 3606", "CATERPILLAR D379", "CATERPILLAR D399" ],
+                    "DAIHATSU": [ "DAIHATSU DL26", "DAIHATSU 6DL20", "DAIHATSU 6PKTB16", "DAIHATSU DLB", "DAIHATSU PKTD14A", "DAIHATSU 6DL22", "DAIHATSU 6PKTD16A", "DAIHATSU DS", "DAIHATSU 6DS22", "DAIHATSU DS (M) 26(F)", "DAIHATSU 6PSHT20", "DAIHATSU 6DL32", "DAIHATSU PS", "DAIHATSU 6DLM28", "DAIHATSU 6PSHT26H", "DAIHATSU DS18A", "DAIHATSU PS(T)22", "DAIHATSU 6DS18A", "DAIHATSU 6VSHT26D", "DAIHATSU DS22", "DAIHATSU PS18", "DAIHATSU 6DS26A", "DAIHATSU DS26", "DAIHATSU PS22", "DAIHATSU 6DS28", "DAIHATSU DS32", "DAIHATSU DS26A", "DAIHATSU PS26", "DAIHATSU 8PSHTC26E", "DAIHATSU 8PSHT20", "DAIHATSU DS28", "DAIHATSU DL20", "DAIHATSU 6DSD22", "DAIHATSU PKT", "DAIHATSU PKTB16A", "DAIHATSU PS 26D", "DAIHATSU 6DSM22", "DAIHATSU 6DS32", "DAIHATSU DSM", "DAIHATSU PSHT26D", "DAIHATSU 8PSHTB26D", "DAIHATSU VS" ],
+                    "MAN B&W": [ "M.A.N.KAWAKZ 70/120E", "M.A.N. K6V 30/45", "M.A.N. KZ 78/155", "M.A.N. KSZ70/150CL", "MAN.DMR/MHKZ 57/80F", "M.A.N. K6Z 60/105", "M.A.N. KZ 78/155C", "M.A.N. 52/55", "M.A.N. KSZ 90/160B/BL", "M.A.N. KEZ 70/150CL", "M.A.N. KZ 78/155E", "M.A.N. KSZ 105/180", "MANDMR/MHKZ60/105", "M.A.N. KSZ 52/105B", "M.A.N. KZ52/90N", "M.A.N. 57/180", "M.A.N. DMRKSZ70/125B", "M.A.N. 40/54 (A)", "M.A.N. 52", "M.A.N. 40/60", "MANKAWAKSZ70/125A", "M.A.N. 60/105E", "M.A.N. KZ57/80E", "M.A.N. KZ57/80F", "M.A.N. KSZ 52/105B/BL", "M.A.N. KSZ 52/105B/B", "M.A.N. 40/54", "M.A.N. KSZ 52/105C-CL", "M.A.N.KSZ52/105C-CL", "M.A.N. 55", "MANKAWAKSZ70/125", "M.A.N. 70/120E", "M.A.N. 70/125", "M.A.N. KZ60/105E", "M.A.N. -KZ57/80F", "M.A.N. 70/125BL", "M.A.N.KSZ52/105C/CL", "M.A.N. KZ70/120C", "M.A.N. KZ70/120D", "MAN M.A.N. D2842", "M.A.N. GV 30/45", "M.A.N. L-V-20/27", "MAN KSZ 78/155", "M.A.N. V6V 23/23TL", "M.A.N. KSZ 70/150C/CL", "M.A.N. 90/160", "M.A.N. KSZ 70/125", "M.A.N. KZ70/120E", "MANDMRK5SZ70/125BL", "M.A.N. ASV25/30", "M.A.N. KSZ 70/125A", "M.A.N. KZ78/140A", "M.A.N. KSZ 70/155A", "M.A.N. AUGSBURG", "M.A.N. KSZ70/125B", "M.A.N. KZ78/140D", "M.A.N. G7V 23, 5/33A", "M.A.N. D2542", "M.A.N. KSZ 70/150", "M.A.N. KZ78/155E", "M.A.N. GV 23.5/33", "M.A.N. D2566", "M.A.N. KSZ", "M.A.N. G8V 23.5/33", "M.A.N. D2840", "M.A.N. W8V 22/30", "M.A.N. V8V 24/30", "M.A.N. GV 30/45AT/L", "M.A.N. KSZ 78/155/D", "M.A.N. LV40/45", "M.A.N. RV 22/30A", "M.A.N. KSZ 78/155A", "M.A.N. LV40/54", "M.A.N. RV/VV 22/30", "M.A.N. GV22/30", "M.A.N. KSZ 90/160", "M.A.N. GV/VV 30/45", "M.A.N. RV/VV 24/30 B", "M.A.N. GV22/33", "M.A.N. KSZ 90/160A", "M.A.N. LV52/55A", "M.A.N. V6V 22/30", "M.A.N. GV 28.5/42", "M.A.N. KSZ 90/160B", "M.A.N. MA16V362", "M.A.N. GV 30/45A", "M.A.N. KZ 57/80", "M.A.N. RV 40/54", "M.A.N. GV-VV 30/45", "M.A.N. 105/180 KSZ", "M.A.N. KZ 57/80A,C,F", "M.A.N. RV, VV 40/54", "M.A.N. GV/RV 30/45", "M.A.N.KSZ90/160A/B/BL", "M.A.N. KZ 57/80F", "M.A.N. V 40/45", "M.A.N. GV/W 30/45", "M.A.N. WV 22/30A", "M.A.N. KZ 60/105", "M.A.N. V 40/54", "M.A.N. GV23.5/33AL", "M.A.N. WV 17, 5/22", "M.A.N. KZ 60/105A", "M.A.N. V 52/55", "M.A.N. KZ 60/105C", "MAN DMR KSZ 70/125B", "MAN KZ 70/120E DMR", "MANKZ 70/120A,C,D,E", "M.A.N. 16/18", "M.A.N. GV30/45AT", "M.A.N. KZ 70/120D", "M.A.N. VV 30/45", "M.A.N. 17, 5/22", "M.A.N. GZ 52/90", "M.A.N. KZ 70/120E", "M.A.N. VV 30/45A", "M.A.N. 20/27", "M.A.N. H 42 A", "M.A.N. 22, 5/33", "M.A.N. VV 40/54", "M.A.N. BV KSZ70/125BL", "MAN K 9-10 Z 78/140", "MAN KZ 70/120EAUSB", "MAN BVKSZ70/150CL", "M.A.N. 2VH42A", "M.A.N. KSL 70/125", "M.A.N. KZ 78/140", "M.A.N. WV 17.5/22", "M.A.N. 30/45", "M.A.N. K52/52/105B", "M.A.N. KZ 78/140/CD", "M.A.N. WV22/30", "M.A.N. 32/36", "M.A.N. K6SZ", "M.A.N. KZ 78/140A", "M.A.N. ZBV 40", "M.A.N. 40/45", "M.A.N. KSZ70/125", "M.A.N. KZ 78/140D", "M.A.N. KZ 70/120A", "M.A.N K10 SZ 105/180", "ENGLISH ELECTRIC" ],
+                    "MTU": [ "M.T.U.362", "M.T.U. 396-03", "M.T.U. 837", "M.T.U. 331/396-01-02", "M.T.U. 396", "M.T.U. 331", "M.T.U. 956", "M.T.U. 652", "M.T.U. 550", "M.T.U. 956-1" ],
+                    "MWM": [ "M.W.M. 440", "M.W.M. 442", "M.W.M. 500", "M.W.M. 526", "M.W.M. 440-4", "M.W.M. 444", "M.W.M. 501", "M.W.M. 601", "M.W.M. 441", "M.W.M. 452", "M.W.M. 510", "M.W.M. 602", "M.W.M. 618", "M.W.M. 518", "M.W.M. 511", "M.W.M. 604" ],
+                    "MAKITA": [ "MAKITA GSLH", "MAKITA GSLH-641", "MAKITA KS43", "MAKITA KSLH-8", "MAKITA GSLH-6275", "MAKITA GSLH-647", "MAKITA KSLH-641", "MAKITA KSLH637", "MAKITA GSLH-630", "MAKITA GSLH-654", "MAKITA GSLH-633", "MAKITA KSLH647" ],
+                    "MIRRLEES": [ "MIRRLEES BLACKSTONE ER", "MIRRLEES BLACKSTONE ES", "MIRRLEES KL", "MIRRLEES BLACKSTONE EV", "MIRRLEES K-MAJOR", "MIRRLEES K" ],
+                    "MITSUBISHI": [ "MITSUBISHI UEC45/75C", "MITSUBISHI UEC45/115H", "MITSUBISHI UEC52/125H", "MITSUBISHI UEC85/180D", "MITSUBISHI UET45/75C", "MITSUBISHI 60-150H", "MITSUBISHI UE52/HA", "MITSUBISHI UE", "MITSUBISHI UEC45/80D", "MITSUBISHI UEC52/90D", "MITSUBISHI UET45/80D", "MITSUBISHI", "UEC65-135D", "MITSUBISHI UET52/105D", "MITSUBISHI UEC45HA", "MITSUBISHI UE60H,HA", "MITSUBISHI UET39/65C", "MITSUBISHI UEC37H-II", "MITSUBISHI UEC", "MITSUBISHI UEC52LA", "MITSUBISHI DIA", "MITSUBISHI UEC37/88H", "MITSUBISHI UEC52/105C", "MITSUBISHI UEC52/105H", "MITSUBISHI UET52/90C", "MITSUBISHI UEC37LA", "MITSUBISHI UET", "MITSUBISHI UEC45LA" ],
+                    "MITSUI": [ "MITSUI UEC45/80D", "MITSUI UEC45LA", "MITSUI UEC52/105D" ],
+                    "NIIGATA": [ "NIIGATA 6M25BX", "NIIGATA 6MG(L)25BX", "NIIGATA 6M37X", "NIIGATA CX", "NIIGATA6M40AX", "NIIGATA6M40EX", "NIIGATA M40EX", "NIIGATA 6MG18CX", "NIIGATA 6MG(L)28BX", "NIIGATA 6M(L)20AX", "NIIGATA 6LF20X", "NIIGATA 6M37CHS", "NIIGATA 6L 16X", "NIIGATA 6M28BX", "NIIGATA 6MG25BX", "NIIGATA MA40X", "NIIGATA 6L20(A)X", "NIIGATA 6M28X", "NIIGATA 6MG31X", "NIIGATA MG25BX", "NIIGATA 6L28BX", "NIIGATA 6M31X", "NIIGATA 6NSF", "NIIGATA X", "NIIGATA BX" ],
+                    "NOHAB": [ "NOHAB 112", "NOHAB 216", "NOHAB F10", "NOHAB F30", "NOHAB 116", "NOHAB 312", "NOHAB F20", "NOHAB MN", "NOHAB 212", "NOHAB 316", "NOHAB F25" ],
+                    "PIELSTICK": [ "PIELSTICK 12PC2.5V", "PIELSTICK PC2", "PIELSTICK PC3", "PIELSTICK PC2V", "PIELSTICK18PC-2V-400", "PIELSTICK PC2,6", "PIELSTICK PC2,2", "PIELSTICK PC4", "PIELSTICK PC2-5V400", "PIELSTICK PC2-400", "PIELSTICK 14PC2V", "PIELSTICK 12PC2V", "PIELSTICK 14PC2.5V", "PIELSTICK 18PC2", "PIELSTICK PC4-2", "PIELSTICK PC4-2-570", "PIELSTICK8PC2-2L 400", "PIELSTICK PC40", "PIELSTICK PC2-2V", "PIELSTICK PC4-570", "PIELSTICK 16PC2V", "PIELSTICK PC2,5", "PIELSTICK PC2-5V", "PIELSTICK 18PC2V" ],
+                    "RUSTON": [ "RUSTON 12RK3CM", "RUSTON 12RKCM", "RUSTON 16RK270", "RUSTON 16RKCM", "RUSTON 16RK270M", "RUSTON 6RKCM", "RUSTON 6RK270M" ],
+                    "DEUTZ": [ "DEUTZ 350", "DEUTZ 528", "DEUTZ VM358", "DEUTZ VM540", "DEUTZ 358", "DEUTZ M325", "DEUTZ 545", "DEUTZ VM545", "DEUTZ 413", "DEUTZ 714", "DEUTZ AM528", "DEUTZ VM628", "DEUTZ 415", "DEUTZ 604", "DEUTZ BAM528", "DEUTZ VM640", "DEUTZ 418", "DEUTZ 616", "DEUTZ BVM540", "DEUTZ 716", "DEUTZ 428", "DEUTZ 628", "DEUTZ FM414", "DEUTZ 816", "DEUTZ 513", "DEUTZ 640", "DEUTZ FM716", "DEUTZ 536", "DEUTZ 517", "DEUTZ 645", "DEUTZ FM816", "DEUTZ 540" ],
+                    "FIAT": [ "FIAT 2365", "FIAT BL230", "FIAT GMT420", "FIAT GMT 420A", "FIAT 900S", "FIAT AL230.6", "FIAT GMT550", "FIAT BL230.6" ],
+                    "HANSHIN": [ "HANSHIN LUD", "HANSHIN LU(N)28AG", "HANSHIN LUD35", "HANSHIN LU", "HANSHIN LUD26", "HANSHIN LU28", "HANSHIN LUN28", "HANSHIN 6LUS40", "HANSHIN LUD32", "HANSHIN LU32", "HANSHIN LUS", "HANSHIN LU50A", "HANSHIN 6LU38", "HANSHIN EL", "HANSHIN LUS24", "HANSHIN LUS58", "HANSHIN 6LU46A", "HANSHIN LUS38", "HANSHIN LUS28", "HANSHIN LUS40", "HANSHIN 6LUN-28", "HANSHIN LU40", "HANSHIN LU46A" ],
+                    "MAK": [ "MAK M281", "MAK 282", "MAK453", "MAK  551", "M.A.K. 281", "M.A.K. 453", "M.A.K. M25", "M.A.K. M452", "M.A.K. 331", "M.A.K. 453AK", "M.A.K. M281", "M.A.K. M581", "M.A.K. 332", "M.A.K. 453C", "M.A.K. M282", "M.A.K. M582", "M.A.K. 351", "M.A.K. 551", "M.A.K. M32", "M.A.K. MS24", "M.A.K. 36", "M.A.K. 552", "M.A.K. M331", "MAK M20", "M.A.K. 423", "M.A.K. 552C", "M.A.K. M332", "MAK M451", "M.A.K. 451", "M.A.K. 9M453AK", "M.A.K. M351", "MAK 452" ],
+                    "STORK": [ "STORK WERKSPOOR TM210", "STORK WERKSPOOR 210", "STORK WERKSPOOR", "STORK WERKSPOOR TM410", "STORK WERKSPOOR DR218K", "STORKWERKSPOOR TM620", "SW280", "DRO210" ],
+                    "SULZER": [ "SULZER RND 68", "SULZER S20", "SULZER RND", "SULZER RND 90M", "SULZER 16Z AV40S", "SULZER BAH22", "SULZER RND 90", "SULZER RND M", "SULZER 5/6RTA48", "SULZER BA22", "SULZER RND 76", "SULZER 6RLB76", "SULZER 6RTA52", "SULZER 6RLB66", "SULZER RND 76M", "SULZER 7R TA62U", "SULZER A 25/30", "SULZER BH22", "SULZER RT/62/68/76", "SULZER TAD36", "SULZER A20", "SULZER L35MC", "SULZER RT26", "SULZER TA36", "SULZER A20S", "SULZER L50MC", "SULZER RT38", "SULZER TD/TDA48", "SULZER A25", "SULZER AL25", "SULZER RT48", "SULZER RT76", "SULZER A25/30", "SULZER AL25/30", "SULZER RT58", "SULZER RTA", "SULZER AL", "SULZER ALT", "SULZER RT62", "SULZER RTA 48", "SULZER AL20", "SULZER AS25", "SULZER RT68", "SULZER RTA 52", "SULZER AL20/24", "SULZER ASL", "SULZER RT72", "SULZER TD36", "SULZER ATL 25/30", "SULZER RLA 90", "SULZER RTA 84", "SULZER ZB40", "SULZER ALT25", "SULZER RD", "SULZER RTA 84C", "SULZER ZL40", "SULZER ALT25/H", "SULZER RD 44", "SULZER RTA 84M", "SULZER ZV40", "SULZER ATV/H", "SULZER RD 56", "SULZER RTA SERIES", "SULZER RLB 66", "SULZER AV 25/30", "SULZER RD 68", "SULZER RTA 52U", "SULZER ZL40/48", "SULZER ASL 25/30", "SULZER RD 76", "SULZER RTA 58", "SULZER Z 40", "SULZER ASL25", "SULZER RD 90", "SULZER RTA 62", "SULZER Z 40/48", "SULZER ASL25/H", "SULZER RL B90", "SULZER RTA 62U", "SULZER ZA 40 S", "SULZER ASV 25/30", "SULZER RL(A,B)-56", "SULZER RTA 68", "SULZER ZA40", "SULZER ASV25/H", "SULZER RL(A,B)-66", "SULZER RTA 72", "SULZER ZAL40", "SULZER AT25", "SULZER RL56", "SULZER RTA 72U", "SULZER ZAV40", "SULZER RLA 56", "SULZER RL66", "SULZER RTA 76", "SULZER ZAV40S" ],
+                    "SKL": [ "SKL 12VD48/42AL-1", "SKL 6NVD26A-2", "SKL 12VD48/42AL-2", "SKL 6NVD26A-3", "6VD29/24AL-2", "SKL 6NVD36A-1U", "6NVD48A-2U", "6NVD48A-2", "6VD29/24AL-1", "6NVD48", "6VD26/20AL-1", "6VD26/20AL-2", "6VD48/42AL-2", "6NVD48-2U", "6VDS24/24AL-1", "6VDS48/42AL-1", "6VDS48/42AL-2", "8NVD36-1U", "8NVD48-2U", "8NVD48A-2", "8NVD48A-3U", "8NVD48", "8NVD48A-2U", "8NVDS36/24A-1", "8NVDS48A-2", "8VDS36/24A-1" ],
+                    "WARTSILA": [ "WARTSILA VASA 32", "WARTSILA 624", "WARTSILA VASA 24", "WARTSILA VASA 46", "WARTSILA 22", "WARTSILA 624TS", "WARTSILA 614", "WARTSILA 824TS", "WARTSILA 24TS", "WARTSILA 6R22", "WARTSILA 524TS", "WARTSILA R32", "WARTSILA V32", "WARTSILA VASA", "WARTSILA R22HF", "WARTSILA 824", "WARTSILA 424TS", "WARTSILA 814", "WARTSILA R22", "WARTSILA 46", "WARTSILA L20", "WARTSILA L26", "WARTSILA 22/26" ],
+                    "YANMAR": [ "YANMAR 6M(A)L-HT(S)", "YANMAR AL", "YANMAR 6ZL-UT", "YANMAR M260", "YANMARAL.UT(=AL.ST)", "YANMAR 5KDL", "YANMAR 6AL", "YANMAR ML/MAL", "YANMAR ME", "YANMAR 6MAL", "YANMAR S165", "YANMAR MLT", "YANMAR 6AHL-UT", "YANMAR 6MAL-6RAL", "YANMAR EL.DT", "YANMAR R(A)L", "YANMAR KFLUT(4VLV)", "YANMAR 6MAL-DT", "YANMAR ET", "YANMAR RAL(T)", "YANMAR 6R(A)L-HT", "YANMAR GL", "YANMAR G (A) L", "YANMAR 6MAL-HT", "YANMAR 6AL-ST", "YANMAR 6MAL-ST", "YANMAR GL-DT", "YANMAR S165L", "YANMAR 6AL-UTD", "YANMAR 6MAL-T", "YANMAR GL.DT (HT)", "YANMAR S165L-ST", "YANMAR 6CHL", "YANMAR 6KFL", "YANMAR HAL", "YANMAR S185", "YANMAR 6DT", "YANMAR 6ML-T", "YANMAR HT", "YANMAR S185-L", "YANMAR M200L-EN", "YANMAR T240", "YANMAR KFL", "YANMAR S185L-ST", "YANMAR 6ES", "YANMAR 6RAL", "YANMAR KFL-UT", "YANMAR ST", "YANMAR 6G(L)-ET", "YANMAR 6RAL-IIT", "YANMAR 6KDL", "YANMAR T210", "YANMAR 6G(L)-HT", "YANMAR 6RAL-ST", "YANMAR KL", "YANMAR T220", "YANMAR 6GAL-ST", "YANMAR 6Z280L-ST", "YANMAR 6UT", "YANMAR T220-AL", "YANMAR 6GL-DT", "YANMAR 6ST", "YANMAR LD", "YANMAR T22-ET", "YANMAR 6Z-ST(ET)", "YANMAR M200", "YANMAR M (A) L", "YANMAR T220AL-UT", "YANMAR 6HAL-HT", "YANMAR 6UAL-UT", "YANMAR M(A)L.DT", "YANMAR T220L-UT", "YANMAR KL.HT (=KFL.HT)2VLV", "YANMAR 6LA-DT", "YANMAR M200L.EN", "YANMAR T220L.UT(ST)", "YANMAR 6ZL-DT", "YANMAR M220", "YANMAR 6RAL-T", "YANMAR 6Z280A-EN", "YANMAR 6KL", "YANMAR 6KES", "YANMAR M200L-UT", "YANMAR 6U(A)L-UT", "YANMAR 6L-T" ]
+                },
+                scrollToTop() {
+                    document.getElementById('contentArea').scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+    </script>
+</body>
+</html>
