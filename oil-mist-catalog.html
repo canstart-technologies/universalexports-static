@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oil Mist Detectors Catalog | Universal Exports BVN</title>
+    <title>Marine Oil Mist Detector Catalog | Graviner, Schaller, Daihatsu | Universal Exports BVN</title>
+    <meta name="description" content="Browse our extensive catalog of marine oil mist detector models including Graviner MK series, Schaller Visatron, and Daihatsu. Source reconditioned OMD systems and spares from Alang ship breaking yard.">
+    <meta name="keywords" content="marine OMD catalog, graviner oil mist detector, schaller visatron, daihatsu oil mist detector, ship engine safety, OMD spares">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,31 +29,21 @@
 
         function catalogApp() {
             return {
-                search: '',
-                selectedMfg: 'All',
-                manufacturers: ['GRAVINER', 'SCHALLER', 'DAIHATSU'],
-                models: [
-                    // GRAVINER
-                    { mfg: 'GRAVINER', model: 'MK4', type: 'Oil Mist Detector', image: 'https://images.unsplash.com/photo-1581092921461-eab62e97a783?auto=format&fit=crop&q=80&w=400' },
-                    { mfg: 'GRAVINER', model: 'MK5', type: 'Oil Mist Detector', image: 'https://images.unsplash.com/photo-1581092921461-eab62e97a783?auto=format&fit=crop&q=80&w=400' },
-                    { mfg: 'GRAVINER', model: 'MK6', type: 'Oil Mist Detector', image: 'https://images.unsplash.com/photo-1581092921461-eab62e97a783?auto=format&fit=crop&q=80&w=400' },
-
-                    // SCHALLER
-                    { mfg: 'SCHALLER', model: '115/87', type: 'Oil Mist Detector', image: 'https://images.unsplash.com/photo-1581092921461-eab62e97a783?auto=format&fit=crop&q=80&w=400' },
-                    { mfg: 'SCHALLER', model: '116/87', type: 'Oil Mist Detector', image: 'https://images.unsplash.com/photo-1581092921461-eab62e97a783?auto=format&fit=crop&q=80&w=400' },
-                    { mfg: 'SCHALLER', model: '215/87', type: 'Oil Mist Detector', image: 'https://images.unsplash.com/photo-1581092921461-eab62e97a783?auto=format&fit=crop&q=80&w=400' },
-
-                    // DAIHATSU
-                    { mfg: 'DAIHATSU', model: '9', type: 'Oil Mist Detector', image: 'https://images.unsplash.com/photo-1581092921461-eab62e97a783?auto=format&fit=crop&q=80&w=400' },
-                    { mfg: 'DAIHATSU', model: '9M', type: 'Oil Mist Detector', image: 'https://images.unsplash.com/photo-1581092921461-eab62e97a783?auto=format&fit=crop&q=80&w=400' }
-                ],
-                get filteredModels() {
-                    return this.models.filter(item => {
-                        const matchesSearch = item.model.toLowerCase().includes(this.search.toLowerCase()) || 
-                                            item.mfg.toLowerCase().includes(this.search.toLowerCase());
-                        const matchesMfg = this.selectedMfg === 'All' || item.mfg === this.selectedMfg;
-                        return matchesSearch && matchesMfg;
-                    });
+                selectedMake: 'GRAVINER',
+                makes: ['GRAVINER', 'SCHALLER', 'DAIHATSU'],
+                engineData: {
+                    'GRAVINER': [
+                        'MK4', 'MK5', 'MK6'
+                    ],
+                    'SCHALLER': [
+                        '115/87', '116/87', '215/87'
+                    ],
+                    'DAIHATSU': [
+                        '9', '9M'
+                    ]
+                },
+                scrollToTop() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
             }
         }
@@ -59,102 +51,140 @@
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased" x-data="catalogApp()">
 
-    <!-- Header (Condensed) -->
-    <nav class="bg-white shadow-sm border-b border-slate-200 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
-            <a href="category-oil-mist-detectors.html" class="flex items-center gap-2 font-bold text-corporate-900 group">
-                <span class="w-8 h-8 bg-corporate-blue text-white flex items-center justify-center rounded text-sm">UE</span>
-                <span class="group-hover:text-corporate-blue transition">Back to Category</span>
-            </a>
-            <div class="text-sm font-bold text-slate-500">
-                OIL MIST DETECTORS CATALOG
+    <!-- Top Bar -->
+    <div class="bg-corporate-900 text-slate-300 text-[11px] py-2 tracking-wide uppercase border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <div class="flex gap-6">
+                <span class="flex items-center gap-1"><span class="text-green-500">●</span> Alang Yard Status: Operational</span>
+            </div>
+            <div class="flex gap-6 font-bold text-white">
+                <a href="tel:+9198252XXXXX" class="hover:text-action-500 transition">+91 98252 XXXXX</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nav -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md border-b border-slate-200" id="navbar">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 bg-corporate-blue text-white flex items-center justify-center font-bold text-xl rounded-sm shadow-lg">UE</div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-corporate-900 text-xl leading-none tracking-tight">UNIVERSAL<br>EXPORTS</span>
+                        <span class="text-[9px] uppercase tracking-[0.2em] text-slate-500 mt-1">Bhavnagar • Alang</span>
+                    </div>
+                </a>
+                <div class="hidden xl:flex space-x-8 items-center text-sm font-bold text-slate-700 uppercase tracking-wide">
+                    <a href="index.html" class="hover:text-corporate-blue transition">Home</a>
+                    <a href="category-engines.html" class="hover:text-corporate-blue transition">Main Engines</a>
+                    <a href="category-auxiliary.html" class="hover:text-corporate-blue transition">Auxiliary Engines</a>
+                    <a href="category-oil-mist-detectors.html" class="hover:text-corporate-blue transition">Oil Mist Detectors</a>
+                    <a href="#contact" class="bg-action-500 text-white px-6 py-3 rounded shadow hover:bg-action-600 transition hover:-translate-y-0.5">
+                        Get Quote
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="max-w-3xl">
+                <span class="text-action-500 font-bold uppercase tracking-widest text-xs mb-2 block">Comprehensive Inventory</span>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-corporate-900 mb-6 leading-tight">
+                    Marine Oil Mist Detector <br>Model Catalog
+                </h1>
+                <p class="text-slate-600 text-lg leading-relaxed mb-8">
+                    We stock reconditioned complete systems, detector heads, and control units for major marine OMD manufacturers. Sourced from ship recycling yards and electronically tested.
+                </p>
+                <div class="flex gap-4 text-sm font-bold text-slate-500">
+                    <span class="flex items-center gap-2"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Updated Weekly</span>
+                    <span class="flex items-center gap-2"><svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Tested & Certified</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 py-12">
-        
-        <!-- Controls -->
-        <div class="mb-12 space-y-6">
-            <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
-                <h1 class="text-3xl font-bold text-corporate-900">Model Catalog</h1>
-                
-                <!-- Search -->
-                <div class="relative w-full md:w-96">
-                    <input type="text" x-model="search" placeholder="Search models (e.g. MK6, 115/87...)" 
-                        class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-action-500 shadow-sm">
-                    <svg class="w-5 h-5 text-slate-400 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+    <main class="py-12 bg-slate-50 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-8">
+            
+            <!-- Sidebar Filters -->
+            <div class="w-full md:w-1/4">
+                <div class="bg-white rounded-lg shadow-sm border border-slate-200 sticky top-24 p-2 max-h-[80vh] overflow-y-auto">
+                    <h3 class="px-4 py-3 text-xs font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100 mb-2">Filter by Make</h3>
+                    <template x-for="make in makes" :key="make">
+                        <button @click="selectedMake = make; scrollToTop()" 
+                                :class="{'bg-corporate-blue text-white shadow-md': selectedMake === make, 'text-slate-600 hover:bg-slate-100': selectedMake !== make}"
+                                class="w-full text-left px-4 py-3 rounded-md text-sm font-bold transition flex justify-between items-center mb-1">
+                            <span x-text="make"></span>
+                            <span :class="{'text-white/80': selectedMake === make, 'text-slate-400': selectedMake !== make}" class="text-xs font-normal" x-text="engineData[make] ? engineData[make].length : 0"></span>
+                        </button>
+                    </template>
                 </div>
             </div>
 
-            <!-- Filters -->
-            <div class="flex flex-wrap gap-2">
-                <button @click="selectedMfg = 'All'" 
-                    :class="selectedMfg === 'All' ? 'bg-corporate-900 text-white' : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'"
-                    class="px-4 py-2 rounded-full text-sm font-bold transition shadow-sm">
-                    All Manufacturers
-                </button>
-                <template x-for="mfg in manufacturers" :key="mfg">
-                    <button @click="selectedMfg = mfg" 
-                        :class="selectedMfg === mfg ? 'bg-action-500 text-white border-action-500' : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'"
-                        class="px-4 py-2 rounded-full text-sm font-bold transition shadow-sm" x-text="mfg">
-                    </button>
-                </template>
-            </div>
-        </div>
-
-        <!-- Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <template x-for="item in filteredModels" :key="item.model">
-                <div class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <!-- Image Area -->
-                    <div class="h-48 bg-slate-100 relative overflow-hidden">
-                        <img :src="item.image" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded text-xs font-bold text-corporate-900 shadow-sm" x-text="item.mfg"></div>
-                    </div>
+            <!-- List Area -->
+            <div class="w-full md:w-3/4" id="contentArea">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8 min-h-[500px]">
                     
-                    <!-- Content -->
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-4">
+                    <div x-show="selectedMake" x-transition.opacity>
+                        <div class="flex items-end justify-between border-b border-slate-100 pb-6 mb-8">
                             <div>
-                                <h3 class="text-xl font-bold text-corporate-900" x-text="item.model"></h3>
-                                <p class="text-sm text-slate-500" x-text="item.type"></p>
+                                <h2 class="text-3xl font-bold text-corporate-900 mb-2" x-text="selectedMake"></h2>
+                                <p class="text-slate-500">
+                                    Browse available OMD models for <span x-text="selectedMake"></span>. Contact us for control units, detector heads, and spares.
+                                </p>
                             </div>
-                            <span class="px-2 py-1 bg-green-50 text-green-700 text-[10px] font-bold uppercase rounded border border-green-100">In Stock</span>
+                            <div class="hidden md:block">
+                                <a href="product-listing.html" class="inline-flex items-center gap-2 text-action-600 font-bold hover:text-action-700 transition">
+                                    Search Stock
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <template x-for="model in engineData[selectedMake]" :key="model">
+                                <div class="group relative bg-slate-50 border border-slate-200 rounded-lg p-4 hover:border-action-500 hover:shadow-md transition cursor-pointer">
+                                    <h3 class="font-mono font-bold text-slate-700 group-hover:text-corporate-blue" x-text="model"></h3>
+                                    <div class="mt-2 flex gap-2 text-[10px] uppercase font-bold text-slate-400">
+                                        <span>Verified</span>
+                                        <span>•</span>
+                                        <span>Tested</span>
+                                    </div>
+                                    <a :href="'product-listing.html?q=' + model" class="absolute inset-0 z-10" aria-label="Search availability"></a>
+                                </div>
+                            </template>
                         </div>
                         
-                        <div class="grid grid-cols-2 gap-4 py-4 border-t border-slate-50 mb-4 text-xs text-slate-500">
-                            <div>
-                                <span class="block mb-1 opacity-70">Condition</span>
-                                <span class="font-semibold text-slate-700">Reconditioned</span>
-                            </div>
-                            <div>
-                                <span class="block mb-1 opacity-70">Availability</span>
-                                <span class="font-semibold text-slate-700">Immediate</span>
-                            </div>
+                        <div x-show="!engineData[selectedMake] || engineData[selectedMake].length === 0" class="text-center py-20 text-slate-400">
+                            No active inventory listed for this manufacturer currently. Please contact us directly.
                         </div>
 
-                        <a href="index.html#contact" class="block w-full text-center py-3 border border-corporate-900 text-corporate-900 font-bold rounded hover:bg-corporate-900 hover:text-white transition uppercase text-xs tracking-widest">
-                            Request Quote
-                        </a>
+                        <div class="mt-12 p-6 bg-blue-50 border border-blue-100 rounded-lg">
+                            <h4 class="font-bold text-corporate-blue mb-2">Technical Note:</h4>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                Our reconditioned OMD units are fully bench tested. This includes verifying optical density sensitivity, alarm setpoints, and fan/airflow operation where applicable.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </template>
+            </div>
         </div>
-
-        <!-- Empty State -->
-        <div x-show="filteredModels.length === 0" class="text-center py-20">
-            <div class="text-6xl mb-4">🔍</div>
-            <h3 class="text-xl font-bold text-corporate-900">No models found</h3>
-            <p class="text-slate-500">Try adjusting your search or filters.</p>
-        </div>
-
     </main>
 
-    <footer class="bg-corporate-900 text-white py-8 border-t border-slate-800 mt-20">
-        <div class="max-w-7xl mx-auto px-4 text-center text-slate-400 text-sm">
-            <p>&copy; 2024 Universal Exports BVN. All rights reserved.</p>
+    <!-- Footer -->
+    <footer class="bg-corporate-900 text-white py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-slate-400 text-sm">
+                &copy; 2024 Universal Exports BVN. All rights reserved.
+            </div>
+            <div class="flex gap-4">
+                <a href="#" class="text-slate-400 hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="text-slate-400 hover:text-white transition">Terms of Service</a>
+            </div>
         </div>
     </footer>
 
